@@ -45,6 +45,17 @@
 - **Controls**: TS stage alpha = 3.0 (not 4/3), post-peak weakening alpha = 2.0 (different regime)
 - **Spatial scale**: ~500 km (largest system in the Merkabit programme)
 
+### CHB-MIT Scalp EEG — Epileptic seizure dynamics (PhysioNet)
+- **Directory**: `chbmit/` (after running `python download_data.py chbmit`)
+- **Source**: [PhysioNet CHB-MIT](https://physionet.org/content/chbmit/1.0.0/)
+- **Paper**: Shoeb, A. H., "Application of machine learning to epileptic seizure onset detection and treatment", PhD Thesis, MIT (2009)
+- **Format**: EDF files (scalp EEG, 23 channels, 256 Hz)
+- **Patient**: chb01, 7 seizures across 7 EDF files + 2 seizure-free files for interictal baseline
+- **Signals analysed**: KWW envelope ACF (pre-ictal, near-onset, ictal, interictal windows), Riemannian covariance geometry
+- **Key result**: Peak pre-ictal alpha = 1.23 (mean), 5/7 seizures within Merkabit window; alpha rises toward 4/3 as seizure approaches
+- **Controls**: Interictal alpha = 0.79 (below 1.036 in all 7 cases), ictal alpha = 0.68
+- **Significance**: First biological system in the Merkabit table; spatial scale ~10 cm (cortical)
+
 ## Datasets analysed but without public data
 
 - **Shinjo et al. 2026** — Clean 2D DTC (IBM Heron, 133 qubits). GitHub repo is private.

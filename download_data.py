@@ -1,9 +1,10 @@
 """
-Download datasets from Zenodo for the Merkabit DTC analysis.
+Download datasets for the Merkabit DTC analysis.
 
 Usage:
     python download_data.py          # Download all datasets
     python download_data.py xiang    # Download only Xiang 2024
+    python download_data.py chbmit   # Download only CHB-MIT EEG
 """
 import os
 import sys
@@ -30,10 +31,23 @@ DATASETS = {
         'dest': os.path.join(DATA_DIR, 'dorian'),
         'size_mb': 106,
     },
+    'chbmit': {
+        'name': 'CHB-MIT Scalp EEG — Epileptic seizure dynamics (PhysioNet)',
+        'doi': 'PhysioNet',
+        'url_base': 'https://physionet.org/files/chbmit/1.0.0/chb01/',
+        'files': [
+            'chb01_01.edf', 'chb01_03.edf', 'chb01_04.edf', 'chb01_09.edf',
+            'chb01_15.edf', 'chb01_16.edf', 'chb01_18.edf', 'chb01_21.edf',
+            'chb01_26.edf',
+        ],
+        'dest': os.path.join(DATA_DIR, 'chbmit'),
+        'size_mb': 450,
+    },
 }
 
 # Mi 2022 and Randall 2021 data are small enough to be included in the repo directly.
 # Cavedon 2019 data is digitised from the published figure (included as figure2_embedded.png).
+# CHB-MIT data is downloaded per-file from PhysioNet (only chb01 patient files needed).
 # See data/README.md for all sources.
 
 
@@ -68,6 +82,21 @@ def download_dataset(key):
     contents = os.listdir(dest)
     if any(d.endswith('.nc') for d in contents) or any(d.startswith('xlelephant') for d in contents):
         print(f'  Already downloaded. Skipping.')
+        return
+    if any(d.endswith('.edf') for d in contents):
+        print(f'  Already downloaded. Skipping.')
+        return
+
+    # Handle CHB-MIT: multiple individual EDF files from PhysioNet
+    if 'files' in ds:
+        url_base = ds['url_base']
+        for fname in ds['files']:
+            fpath = os.path.join(dest, fname)
+            if os.path.exists(fpath):
+                print(f'  {fname} already exists, skipping.')
+                continue
+            download_file(url_base + fname, fpath)
+        print(f'  Done.')
         return
 
     # Handle datasets with multiple files (e.g., Dorian NetCDF)

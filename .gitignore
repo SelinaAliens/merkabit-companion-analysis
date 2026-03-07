@@ -26,6 +26,7 @@ desktop.ini
 # Downloaded data (fetched by download_data.py)
 data/xiang_2024/
 data/dorian/
+data/chbmit/
 
 # Large archives
 *.zip

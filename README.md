@@ -1,6 +1,6 @@
-# Merkabit Framework: Stretched Exponential Analysis Across Quantum, Plasma, and Atmospheric Systems
+# Merkabit Framework: Stretched Exponential Analysis Across Quantum, Plasma, Atmospheric, and Biological Systems
 
-Cross-platform analysis of stretched exponential (KWW) relaxation dynamics — from discrete time crystals to tokamak ELMs to hurricane rapid intensification — using the Merkabit framework.
+Cross-platform analysis of stretched exponential (KWW) relaxation dynamics — from discrete time crystals to tokamak ELMs to hurricane rapid intensification to epileptic seizures — using the Merkabit framework.
 
 ## Key finding
 
@@ -15,8 +15,9 @@ The stretched exponential exponent alpha ~ 4/3 appears across multiple independe
 | Cavedon et al. 2019 — gradTi | ELM ion temp. gradient recovery | 1.43 | ASDEX Upgrade tokamak | ~1 m |
 | Hurricane Dorian 2019 — wind | Rapid intensification (TS to Cat 5) | 1.44 | NOAA recon | ~500 km |
 | Hurricane Dorian 2019 — pressure | Pressure deepening (1003 to 910 mb) | 1.47 | NOAA recon | ~500 km |
+| CHB-MIT chb01 — peak pre-ictal | EEG seizure cooperative cascade | 1.23 | PhysioNet EEG | ~10 cm |
 
-The Merkabit signature (|alpha - 4/3| < 0.15, R^2 > 0.90) appears across quantum, plasma, and atmospheric systems. Spatial scale range: quantum dot (~10 nm) to hurricane (~500 km) = 10^10.
+The Merkabit signature (|alpha - 4/3| < 0.15, R^2 > 0.90) appears across quantum, plasma, atmospheric, and biological systems. Spatial scale range: quantum dot (~10 nm) to hurricane (~500 km) = 10^10. The CHB-MIT epileptic seizure analysis is the first biological system in the table.
 
 ## Setup
 
@@ -24,7 +25,7 @@ The Merkabit signature (|alpha - 4/3| < 0.15, R^2 > 0.90) appears across quantum
 # Install dependencies
 pip install -r requirements.txt
 
-# Download Xiang 2024 and Hurricane Dorian datasets
+# Download Xiang 2024, Hurricane Dorian, and CHB-MIT datasets
 python download_data.py
 ```
 
@@ -35,7 +36,7 @@ Mi 2022 and Randall 2021 data are included in the repository.
 ```
 merkabit-dtc/
 ├── config.py                # Path configuration (all scripts import from here)
-├── download_data.py         # Fetches Xiang 2024 + Dorian data
+├── download_data.py         # Fetches Xiang 2024, Dorian, + CHB-MIT data
 ├── requirements.txt
 │
 ├── analysis/                # Core analysis scripts
@@ -51,6 +52,7 @@ merkabit-dtc/
 │   ├── kww_elm_final.py          # Cavedon 2019 ELM relaxation (ASDEX Upgrade)
 │   ├── kww_tail_analysis.py       # Idiv tail sensitivity analysis
 │   ├── kww_dorian_final.py        # Hurricane Dorian rapid intensification
+│   ├── chbmit_analysis.py         # CHB-MIT EEG seizure analysis (9th dataset)
 │   ├── tsoukalas_alpha_verification.py
 │   ├── nstar_stress_test.py
 │   ├── short_time_scaling_test.py
@@ -69,6 +71,7 @@ merkabit-dtc/
 │   ├── randall_2021/        # JSON files (included, ~2.2 MB)
 │   ├── xiang_2024/          # .mat files (downloaded via download_data.py)
 │   ├── dorian/              # NetCDF files (downloaded via download_data.py)
+│   ├── chbmit/              # EDF files (downloaded via download_data.py)
 │   └── README.md            # Data sources and DOIs
 │
 └── results/                 # Pre-computed figures and reports
@@ -106,6 +109,7 @@ See [data/README.md](data/README.md) for full details and Zenodo DOIs.
 - Randall et al., "Many-body-localized discrete time crystal with a programmable spin-based quantum simulator", Science 374, 1474 (2021)
 - Cavedon et al., "Connecting the global H-mode power threshold to the local radial electric field at ASDEX Upgrade", Nucl. Fusion 60, 066026 (2020)
 - NOAA Hurricane Research Division, Hurricane Dorian 2019 flight-level data, https://www.aoml.noaa.gov/hrd/Storm_pages/dorian2019/
+- Shoeb, A. H. "Application of machine learning to epileptic seizure onset detection and treatment", PhD Thesis, MIT (2009). CHB-MIT dataset: https://physionet.org/content/chbmit/1.0.0/
 
 ## License
 

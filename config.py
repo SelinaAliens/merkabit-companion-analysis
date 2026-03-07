@@ -12,6 +12,7 @@ MI_2022_DATA = os.path.join(DATA_DIR, 'mi_2022')
 XIANG_2024_DATA = os.path.join(DATA_DIR, 'xiang_2024')
 RANDALL_2021_DATA = os.path.join(DATA_DIR, 'randall_2021')
 DORIAN_DATA = os.path.join(DATA_DIR, 'dorian')
+CHBMIT_DATA = os.path.join(DATA_DIR, 'chbmit')
 
 # Xiang 2024 subdirectory (created by download_data.py)
 XIANG_2024_BASE = os.path.join(
