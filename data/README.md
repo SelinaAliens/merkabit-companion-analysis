@@ -1,0 +1,51 @@
+# Data Sources
+
+## Included in this repository
+
+### Mi et al. 2022 — MBL DTC (Google Sycamore)
+- **Directory**: `mi_2022/`
+- **Paper**: Nature 601, 531 (2022)
+- **DOI**: [10.5281/zenodo.5570676](https://doi.org/10.5281/zenodo.5570676)
+- **Format**: CSV files from figures 2-5 and supplementary figures
+- **Platform**: Google Sycamore, 20 transmon qubits
+
+### Randall et al. 2021 — MBL DTC (Diamond NV centers)
+- **Directory**: `randall_2021/`
+- **Paper**: Science 374, 1474 (2021)
+- **DOI**: [10.5281/zenodo.5636045](https://doi.org/10.5281/zenodo.5636045)
+- **Format**: JSON files (correlation data, per-spin measurements, decay histograms)
+- **Platform**: Diamond NV center, 9 spins
+
+## Downloaded via `download_data.py`
+
+### Xiang et al. 2024 — Topological prethermal DTC (Google Sycamore)
+- **Directory**: `xiang_2024/` (after running `python download_data.py`)
+- **Paper**: Nat. Commun. 15, 8963 (2024)
+- **DOI**: [10.5281/zenodo.13692134](https://doi.org/10.5281/zenodo.13692134)
+- **Format**: MATLAB `.mat` files (main figures 2-4, supplementary figures)
+- **Platform**: Google Sycamore, 18 superconducting qubits
+- **Key file**: `main_figure2/fig2a.mat` — 6 qubits x 41 stroboscopic steps, alternating-sign DTC
+
+### Cavedon et al. 2019 — ELM relaxation (ASDEX Upgrade tokamak)
+- **File**: `figure2_embedded.png` (digitised from paper Figure 2)
+- **Paper**: Nucl. Fusion 60, 066026 (2020)
+- **Signals analysed**: Divertor current (Idiv) decay, ion temperature gradient (gradTi) recovery
+- **Platform**: ASDEX Upgrade tokamak, shot #34430
+- **Method**: Figure digitisation (pixel-to-physical calibration), KWW fitting
+- **Key result**: Transport tail alpha = 1.27, gradTi recovery alpha = 1.43 — both within Merkabit window
+
+### Hurricane Dorian 2019 — Rapid intensification (NOAA Hurricane Hunter)
+- **Directory**: `dorian/` (after running `python download_data.py dorian`)
+- **Source**: [NOAA HRD Flight-Level Data](https://www.aoml.noaa.gov/hrd/Storm_pages/dorian2019/)
+- **Format**: NetCDF (`.nc`) flight-level data from Hurricane Hunter reconnaissance
+- **Files**: `20190901H1_AC.nc` (52 MB), `20190901N1_AC.nc` (54 MB)
+- **Storm**: Hurricane Dorian, Category 5, Sept 1 2019 — peak intensity 160 kt, 910 mb
+- **Signals analysed**: Wind intensification time series (TS to Cat 5), pressure deepening, radial profiles
+- **Key result**: Wind intensification alpha = 1.44, pressure deepening alpha = 1.47 — both within Merkabit window
+- **Controls**: TS stage alpha = 3.0 (not 4/3), post-peak weakening alpha = 2.0 (different regime)
+- **Spatial scale**: ~500 km (largest system in the Merkabit programme)
+
+## Datasets analysed but without public data
+
+- **Shinjo et al. 2026** — Clean 2D DTC (IBM Heron, 133 qubits). GitHub repo is private.
+- **Kyprianidis et al. 2021** — Prethermal DTC (Trapped ions). No public data archive.

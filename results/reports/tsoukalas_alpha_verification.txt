@@ -1,0 +1,27 @@
+TSOUKALAS et al. (2026) — ALPHA VERIFICATION REPORT
+============================================================
+
+Data source: Fig2e1.csv (FID / Ramsey T2*)
+N = 81 data points
+t range: [0.0110, 4.0000] us
+
+FREE FIT (6 parameters)
+----------------------------------------
+  Model: C + A0*exp(-(t/T2*)^alpha)*cos(2*pi*f*t + phi)
+  Method: NLS (curve_fit, TRF with bounds)
+  alpha  = 1.441614 +/- 0.305909 (1-sigma)
+  T2*    = 2.165483 +/- 0.204697 us
+  f      = 1.110085 +/- 0.010197 MHz
+  R^2    = 0.869947
+  DoF    = 75
+
+95% CI on alpha
+----------------------------------------
+  Wald:      [0.8322, 2.0510]
+  Bootstrap: [0.9398, 2.2016]
+
+FIXED-ALPHA COMPARISONS
+----------------------------------------
+  Free:        R^2 = 0.869947
+  alpha=4/3:   R^2 = 0.869724, dR^2 = 0.000223, F p = 0.7211
+  alpha=0.82:  R^2 = 0.858265, dR^2 = 0.011682, F p = 0.0114

@@ -1,0 +1,28 @@
+RANDALL ET AL. 2021 — NV CENTER MBL DTC
+======================================================================
+
+Baseline: Mi et al. 2022 MBL DTC alpha = 0.822
+
+Key                                              alpha      err    delta       R2
+-------------------------------------------------------------------------------------
+ avg_neel                                       0.2862   0.1426  -0.5358   0.5937
+ even_branch                                    0.1379   0.1535  -0.6841   0.7294
+ odd_branch                                     0.3760   0.2160  -0.4460   0.5776
+ paper_fit_curve                                1.0000   0.0000  +0.1780   1.0000
+ spin1                                          0.0763   0.5324  -0.7457   0.0743
+ spin3                                          0.1674   0.3546  -0.6546   0.1632
+ spin5                                          0.8070   0.4368  -0.0150   0.2690
+ spin7                                          0.4781   0.2115  -0.3439   0.4496
+ spin9                                          0.3648   0.4860  -0.4572   0.1183
+ tilted_XY                                      0.1707   0.1272  -0.6513   0.7855
+ tilted_Z                                       0.1223   0.4979  -0.6997   0.2203
+ xbasis_0                                       0.3592   3.4440  -0.4628   0.0641
+ xbasis_1                                       0.6738  58.5982  -0.1482   0.0003
+ xbasis_2                                       0.4660   1.2356  -0.3560   0.3403
+ xbasis_3                                       0.4887   0.8635  -0.3333   0.5653
+
+
+Stabilisation mechanism: MBL (dipolar disorder)
+Platform: Diamond NV center spins (9 qubits)
+Observable: Local Z magnetization
+Noise type: 1/f-like (laser intensity, motional heating)
