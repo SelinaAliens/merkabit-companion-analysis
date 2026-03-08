@@ -63,7 +63,12 @@ merkabit-dtc/
 │   ├── tsoukalas_alpha_verification.py
 │   ├── nstar_stress_test.py
 │   ├── short_time_scaling_test.py
-│   └── r2_significance_test.py
+│   ├── r2_significance_test.py
+│   ├── tesseract_zero_point_investigation.py   # Zero point constant: self-sustaining coherence
+│   ├── tesseract_zero_point_part2.py           # Deep analysis: Berry phases, 24-cell, winding
+│   ├── tesseract_zero_point_part3.py           # Spectral gap ladder: 1/n, (n-1)/n, 1/3 → 4/3
+│   ├── twentyfour_cell_investigation.py        # 24-cell: dual ouroboros, 600-cell falsification
+│   └── tesseract_merkabit_simulation.py        # 4×4 counter-rotating tesseract simulation
 │
 ├── validation/              # Supporting tests and stress tests
 │   ├── stroboscopic_doubling_test.py   # Tests beta -> 2*beta hypothesis (RULED OUT)
@@ -105,6 +110,18 @@ The exponent alpha characterises the decay dynamics:
 - alpha < 1: stretched (sub-exponential), typical of MBL-stabilised DTCs
 - alpha = 1: simple exponential
 - alpha > 1: compressed (super-exponential), observed in clean exchange-coupled systems
+
+## Theoretical foundations
+
+The zero point constant (1/3) and KWW exponent (4/3) are derived from pure graph theory with zero free parameters:
+
+- **24-cell spectral gap/bandwidth = 4/12 = 1/3** — unique among all regular 4-polytopes (600-cell falsification: gap/bw = 0.146, not 1/3)
+- **KWW exponent = (1/3)/(1/4) = 4/3** — spectral enhancement ratio from tesseract to 24-cell
+- **Dimensional ladder**: n-cube gap/bw = 1/n (exact), n-orthoplex gap/bw = (n-1)/n (complementary)
+- **Self-sustaining coherence**: 4-spinor |C|_mean = 0.47, 8-spinor |C|_mean = 0.33 ≈ 1/3 under internal dynamics alone
+- **Dual ouroboros Berry phase = exact zero**: 12 forward + 12 inverse steps → perfect state closure
+
+See `analysis/tesseract_zero_point_investigation.py` (Parts 1-3) and `analysis/twentyfour_cell_investigation.py`.
 
 ## Datasets
 
