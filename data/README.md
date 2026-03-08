@@ -26,6 +26,7 @@
 - **Files included**: `711Hz_spec_data_medit.mat`, `60110Hz_spec_data_medit.mat`, `chanlocs.mat`, 4 CSV tables
 - **Key result**: HYT alpha/gamma power ratio = 1.361, within 2.1% of 4/3; Z3 symmetry score HYT > CTR (p=0.037)
 - **Deep dive findings**: ISY distribution unimodal (not bimodal), Moran's I = 0.091 (spatially clustered but sectorally uniform)
+- **Windowed Z3 time series** (requires raw EEG): Sliding-window Z3 (30s window, 10s step) over full sessions. HYT > VIP (p=0.04), VIP suppressed (0% frac>1.0). P_MED_4 dynamic NOT confirmed (HYT not above CTR). Standout HYT_06 subject (median Z3=0.91, 31% above 1.0). Channel count confound noted (64ch vs 72ch affects H3/H2 normalization).
 - **Phase 2** (not yet run): requires raw EEG (~6.3 GB from Zenodo 2348892) for KWW, |C|->1/3, Z3, Berry phase tests
 
 ## Downloaded via `download_data.py`

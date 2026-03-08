@@ -58,6 +58,7 @@ merkabit-dtc/
 │   ├── phase1_channel_analysis.py       # 64-channel topographic alpha/gamma
 │   ├── phase1_deep_analysis.py          # ISY distribution, Z3 symmetry, spatial uniformity
 │   ├── rishikesh_meditation_phase2.py   # Phase 2: KWW + geometric (requires raw EEG)
+│   ├── z3_timeseries.py                # Windowed Z3 time series (sliding-window H3/H2)
 │   ├── delorme_mindwandering_phase2.py  # Within-subject MW vs MED analysis
 │   ├── tsoukalas_alpha_verification.py
 │   ├── nstar_stress_test.py

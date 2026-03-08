@@ -1,0 +1,24 @@
+
+=== WINDOWED Z3 RESULTS (Braboszcz dataset) ===
+
+Group | N | Median Z3 | Frac >1.0 | Frac >0.8 | Std Z3
+CTR   | 16 | 0.5831    | 7.7%     | 18.3%     | 0.2835
+ISY   | 16 | 0.4634    | 2.1%     | 9.0%     | 0.2001
+VIP   | 16 | 0.2773    | 0.0%     | 0.0%     | 0.1205
+HYT   | 16 | 0.5464    | 6.6%     | 11.1%     | 0.2361
+
+Mann-Whitney p values (frac above 1.0):
+  HYT > CTR: p = 0.6282
+  ISY > CTR: p = 0.9322
+  VIP > CTR: p = 0.9877
+  HYT > VIP: p = 0.0399 <-- key test
+  ISY > VIP: p = 0.1050
+
+HYT session drift (early vs late Z3): -0.1241
+  (positive = Z3 rises over session = deepening state)
+
+P_MED_4 DYNAMIC: NOT CONFIRMED
+  Criteria: HYT frac>1.0 significantly > CTR (p<0.05)
+            AND VIP frac>1.0 NOT significantly > CTR (p>0.05)
+
+=== END ===
