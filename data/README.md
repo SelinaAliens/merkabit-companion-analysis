@@ -16,6 +16,18 @@
 - **Format**: JSON files (correlation data, per-spin measurements, decay histograms)
 - **Platform**: Diamond NV center, 9 spins
 
+### Braboszcz et al. 2017 — Rishikesh Meditation Study (Phase 1 spectral data)
+- **Directory**: `meditation/`
+- **Paper**: Frontiers in Psychology 8, 1116 (2017)
+- **DOI (spectral)**: [10.5281/zenodo.57911](https://doi.org/10.5281/zenodo.57911)
+- **DOI (raw EEG)**: [10.5281/zenodo.2348892](https://doi.org/10.5281/zenodo.2348892)
+- **Format**: MATLAB `.mat` files (spectral power, channel locations) + CSV summary tables
+- **Groups**: CTR (0h), ISY/Shoonya (2,625h), VIP/Vipassana (9,201h), HYT (15,475h), 16 subjects each
+- **Files included**: `711Hz_spec_data_medit.mat`, `60110Hz_spec_data_medit.mat`, `chanlocs.mat`, 4 CSV tables
+- **Key result**: HYT alpha/gamma power ratio = 1.361, within 2.1% of 4/3; Z3 symmetry score HYT > CTR (p=0.037)
+- **Deep dive findings**: ISY distribution unimodal (not bimodal), Moran's I = 0.091 (spatially clustered but sectorally uniform)
+- **Phase 2** (not yet run): requires raw EEG (~6.3 GB from Zenodo 2348892) for KWW, |C|->1/3, Z3, Berry phase tests
+
 ## Downloaded via `download_data.py`
 
 ### Xiang et al. 2024 — Topological prethermal DTC (Google Sycamore)

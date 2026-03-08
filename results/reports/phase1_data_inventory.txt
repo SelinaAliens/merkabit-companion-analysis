@@ -1,0 +1,73 @@
+PHASE 1 DATA INVENTORY — Zenodo 57911 (Rishikesh Meditation Study)
+=====================================================================
+Source: Braboszcz et al. (2017) "Increased Gamma Brainwave Amplitude
+        Compared to Control in Three Different Meditation Traditions"
+DOI: 10.5281/zenodo.57911
+
+GROUPS (n=16 per group):
+  CTR  = Control (novice, 0 hours experience)
+  ISY  = Isha Shoonya (open awareness, ~2625 hours)
+  VIP  = Vipassana (focused attention, ~9201 hours)
+  HYT  = Himalayan Yoga Tradition (~15475 hours)
+
+CONDITIONS:
+  MW   = Mind Wandering (baseline)
+  MED  = Meditation
+  BRE  = Breathing (gamma CSV only)
+
+FILES:
+------
+1. boxplot_alpha.csv (787 bytes)
+   Shape: 64 rows x 2 columns
+   Columns: Groupe, Median Alpha
+   Content: Per-subject median alpha power (7-11 Hz), MW+MED combined
+   Groups: CTR(16), ISY(16), VIP(16), HYT(16)
+
+2. boxplot_gamma.csv (2016 bytes)
+   Shape: 64 rows x 4 columns
+   Columns: Groupe, Condition, Electrodes, Median.Gamma
+   Content: Per-subject median gamma (60-110 Hz), parieto-occipital, MW+MED
+   Groups: CTR(16), ISY(16), VIP(16), HYT(16)
+
+3. median_alpha_power.csv (3137 bytes)
+   Shape: 128 rows x 4 columns
+   Columns: Subjects, Group, Condition, Alpha
+   Content: Per-subject median alpha power, MW and MED conditions separate
+   Groups x Conditions: 4 x 2 = 8 cells, 16 subjects each
+
+4. median_gamma_power.csv (10353 bytes)
+   Shape: 192 rows x 9 columns
+   Columns: Subjects, Group, Condition, Gamma_All, Posterior, Frontal,
+            Combined_Post, Combined_Front, Combined_all
+   Content: Per-subject gamma power with regional breakdown
+   Conditions: MW, MED, BRE (3 conditions x 4 groups x 16 subjects)
+
+5. 711Hz_spec_data_medit.mat (18001 bytes)
+   Variables:
+     CTR_medit_711: shape (64, 16) — 64 channels x 16 subjects
+     ISY_medit_711: shape (64, 16)
+     VIP_medit_711: shape (64, 16)
+     HYT_medit_711: shape (64, 16)
+   Content: Channel-level alpha spectral power during MED condition
+
+6. 60110Hz_spec_data_medit.mat (21549 bytes)
+   Variables:
+     CTR_medit60110: shape (64, 16) — 64 channels x 16 subjects
+     ISY_medit60110: shape (64, 16)
+     VIP_medit60110: shape (64, 16)
+     HYT_medit60110: shape (64, 16)
+   Content: Channel-level gamma spectral power during MED condition
+
+7. chanlocs.mat (5504 bytes)
+   Variable: chanlocs, shape (1, 77)
+   Fields: labels, type, theta, radius, X, Y, Z, sph_theta, sph_phi,
+           sph_radius, urchan, ref
+   Content: 77 EEG electrode locations (64 used in spectral data)
+
+WHAT IS AVAILABLE vs NOT AVAILABLE:
+  Available: Group-level summary statistics (median power per subject)
+  Available: Channel-level spectral power (64 ch x 16 subj per group)
+  NOT available: Raw EEG time series (needed for KWW, Phase 2)
+  NOT available: Time-resolved spectral evolution within session
+  NOT available: Phase information (needed for Berry phase test)
+  NOT available: ICA components

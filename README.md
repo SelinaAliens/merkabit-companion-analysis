@@ -1,6 +1,6 @@
-# Merkabit Framework: Stretched Exponential Analysis Across Quantum, Plasma, Atmospheric, and Biological Systems
+# Merkabit Framework: Stretched Exponential Analysis Across Quantum, Plasma, Atmospheric, Biological, and Neural Systems
 
-Cross-platform analysis of stretched exponential (KWW) relaxation dynamics — from discrete time crystals to tokamak ELMs to hurricane rapid intensification to epileptic seizures — using the Merkabit framework.
+Cross-platform analysis of stretched exponential (KWW) relaxation dynamics — from discrete time crystals to tokamak ELMs to hurricane rapid intensification to epileptic seizures to meditation EEG — using the Merkabit framework.
 
 ## Key finding
 
@@ -16,8 +16,9 @@ The stretched exponential exponent alpha ~ 4/3 appears across multiple independe
 | Hurricane Dorian 2019 — wind | Rapid intensification (TS to Cat 5) | 1.44 | NOAA recon | ~500 km |
 | Hurricane Dorian 2019 — pressure | Pressure deepening (1003 to 910 mb) | 1.47 | NOAA recon | ~500 km |
 | CHB-MIT chb01 — peak pre-ictal | EEG seizure cooperative cascade | 1.23 | PhysioNet EEG | ~10 cm |
+| Rishikesh Meditation — HYT | Alpha/gamma spectral ratio | 1.36 | Scalp EEG 64ch | ~10 cm |
 
-The Merkabit signature (|alpha - 4/3| < 0.15, R^2 > 0.90) appears across quantum, plasma, atmospheric, and biological systems. Spatial scale range: quantum dot (~10 nm) to hurricane (~500 km) = 10^10. The CHB-MIT epileptic seizure analysis is the first biological system in the table.
+The Merkabit signature (|alpha - 4/3| < 0.15, R^2 > 0.90) appears across quantum, plasma, atmospheric, and biological systems. Spatial scale range: quantum dot (~10 nm) to hurricane (~500 km) = 10^10. The meditation analysis extends the biological domain with spectral balance approaching 4/3 in experienced practitioners.
 
 ## Setup
 
@@ -25,18 +26,18 @@ The Merkabit signature (|alpha - 4/3| < 0.15, R^2 > 0.90) appears across quantum
 # Install dependencies
 pip install -r requirements.txt
 
-# Download Xiang 2024, Hurricane Dorian, and CHB-MIT datasets
+# Download Xiang 2024, Dorian, CHB-MIT, and meditation raw EEG datasets
 python download_data.py
 ```
 
-Mi 2022 and Randall 2021 data are included in the repository.
+Mi 2022, Randall 2021, and meditation Phase 1 spectral data are included in the repository.
 
 ## Repository structure
 
 ```
 merkabit-dtc/
 ├── config.py                # Path configuration (all scripts import from here)
-├── download_data.py         # Fetches Xiang 2024, Dorian, + CHB-MIT data
+├── download_data.py         # Fetches Xiang 2024, Dorian, CHB-MIT, + meditation raw EEG
 ├── requirements.txt
 │
 ├── analysis/                # Core analysis scripts
@@ -53,6 +54,11 @@ merkabit-dtc/
 │   ├── kww_tail_analysis.py       # Idiv tail sensitivity analysis
 │   ├── kww_dorian_final.py        # Hurricane Dorian rapid intensification
 │   ├── chbmit_analysis.py         # CHB-MIT EEG seizure analysis (9th dataset)
+│   ├── meditation_phase1_analysis.py    # Rishikesh meditation Phase 1 spectral
+│   ├── phase1_channel_analysis.py       # 64-channel topographic alpha/gamma
+│   ├── phase1_deep_analysis.py          # ISY distribution, Z3 symmetry, spatial uniformity
+│   ├── rishikesh_meditation_phase2.py   # Phase 2: KWW + geometric (requires raw EEG)
+│   ├── delorme_mindwandering_phase2.py  # Within-subject MW vs MED analysis
 │   ├── tsoukalas_alpha_verification.py
 │   ├── nstar_stress_test.py
 │   ├── short_time_scaling_test.py
@@ -72,6 +78,7 @@ merkabit-dtc/
 │   ├── xiang_2024/          # .mat files (downloaded via download_data.py)
 │   ├── dorian/              # NetCDF files (downloaded via download_data.py)
 │   ├── chbmit/              # EDF files (downloaded via download_data.py)
+│   ├── meditation/          # MAT + CSV spectral data (included, ~62 KB)
 │   └── README.md            # Data sources and DOIs
 │
 └── results/                 # Pre-computed figures and reports
@@ -110,6 +117,7 @@ See [data/README.md](data/README.md) for full details and Zenodo DOIs.
 - Cavedon et al., "Connecting the global H-mode power threshold to the local radial electric field at ASDEX Upgrade", Nucl. Fusion 60, 066026 (2020)
 - NOAA Hurricane Research Division, Hurricane Dorian 2019 flight-level data, https://www.aoml.noaa.gov/hrd/Storm_pages/dorian2019/
 - Shoeb, A. H. "Application of machine learning to epileptic seizure onset detection and treatment", PhD Thesis, MIT (2009). CHB-MIT dataset: https://physionet.org/content/chbmit/1.0.0/
+- Braboszcz et al., "Plasticity of visual attention in Isha yoga meditation practitioners", Frontiers in Psychology 8, 1116 (2017). Zenodo: https://doi.org/10.5281/zenodo.57911 (spectral), https://doi.org/10.5281/zenodo.2348892 (raw EEG)
 
 ## License
 

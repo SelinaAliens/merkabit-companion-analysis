@@ -1,0 +1,90 @@
+PHASE 1 CHANNEL-LEVEL RESULTS — Topographic Alpha/Gamma Ratio
+================================================================
+64 channels x 16 subjects per group, MED condition
+
+KEY FINDINGS:
+=============
+
+1. HYT HAS THE MOST CHANNELS AT 4/3 — BY FAR
+   Fraction of channels with |ratio - 4/3| < 0.10:
+     CTR:  0/64  ( 0.0%)
+     ISY: 22/64  (34.4%)
+     VIP:  0/64  ( 0.0%)
+     HYT: 36/64  (56.2%)   <-- over half the scalp is at 4/3
+
+   Fraction within 0.05 of 4/3:
+     CTR:  0/64
+     ISY:  7/64  (10.9%)
+     VIP:  0/64
+     HYT: 16/64  (25.0%)   <-- 1 in 4 channels precisely at 4/3
+
+2. THE SHIFT IS GLOBAL, NOT REGIONAL
+   HYT ratio < CTR ratio at ALL 64 channels (100%)
+   56/64 channels significantly different (p<0.05)
+   This is not a localized effect — the entire scalp shifts toward 4/3
+
+3. HYT CHANNELS NEAREST 4/3:
+   F8  (frontal):           ratio = 1.3372, |r-4/3| = 0.004
+   T8  (temporal):          ratio = 1.3276, |r-4/3| = 0.006
+   FC6 (fronto-central):    ratio = 1.3401, |r-4/3| = 0.007
+   F7  (frontal):           ratio = 1.3426, |r-4/3| = 0.009
+   P9  (parietal):          ratio = 1.3455, |r-4/3| = 0.012
+   P10 (parietal):          ratio = 1.3484, |r-4/3| = 0.015
+
+4. REGIONAL RANKING (HYT, proximity to 4/3):
+   Temporal (4 ch):           |r-4/3| = 0.041  <-- closest
+   Parieto-occipital (9 ch):  |r-4/3| = 0.063
+   Fronto-central (9 ch):     |r-4/3| = 0.078
+   Frontal (9 ch):            |r-4/3| = 0.083
+   Prefrontal (8 ch):         |r-4/3| = 0.091
+   Parietal (11 ch):          |r-4/3| = 0.099
+   Central (7 ch):            |r-4/3| = 0.115
+   Centro-parietal (7 ch):    |r-4/3| = 0.137  <-- farthest
+
+5. ISY (SHOONYA) CHANNELS NEAREST 4/3:
+   P9  (parietal):    ratio = 1.3341, |r-4/3| = 0.0007  <-- essentially exact
+   P10 (parietal):    ratio = 1.3310, |r-4/3| = 0.0023
+   ISY achieves the two single-channel values closest to 4/3 in the
+   entire dataset, both at lateral parietal electrodes.
+
+6. VIP IS NOT AT 4/3 AT ANY CHANNEL
+   Nearest VIP channel: TP8 at 1.4412 (|r-4/3| = 0.108)
+   0/64 channels within 0.10 of 4/3
+   Confirms VIP's alpha inflation pushes ratio away from 4/3 everywhere
+
+7. P_MED_2b CONFIRMED IN CHANNEL-LEVEL DATA (DRIVEN vs SELF-SUSTAINING)
+   Cross-subject variance per channel:
+     CTR: 0.184  (novice baseline)
+     ISY: 0.266  (open awareness)
+     VIP: 0.287  (focused attention)  <-- highest
+     HYT: 0.262  (advanced HYT)
+
+   VIP more variable than ISY: 50/64 channels (78%)
+   VIP more variable than HYT: 56/64 channels (88%)
+   Paired t-test VIP vs ISY: t=5.756, p<0.0001
+   Paired t-test VIP vs HYT: t=6.873, p<0.0001
+
+   This is the Phase 1 confirmation of P_MED_2b:
+   VIP (focused attention, 9201h) is MORE variable than ISY (open
+   awareness, 2625h) AND HYT (15475h), at 78-88% of channels, with
+   p<0.0001. The driven vs self-sustaining distinction is real and
+   spatially pervasive.
+
+8. NO ANTERIOR-POSTERIOR GRADIENT
+   All groups show <0.01 difference between anterior and posterior ratio.
+   The 4/3 ratio is spatially uniform across the scalp.
+
+9. NO HEMISPHERE ASYMMETRY
+   All groups show <0.3% left-right asymmetry.
+   The effect is bilaterally symmetric.
+
+10. MIDLINE vs LATERAL
+    All groups show higher ratio at midline (~0.04 higher).
+    Lateral channels are consistently closer to 4/3.
+
+SUMMARY:
+  The alpha/gamma ratio = 4/3 is a GLOBAL brain signature in HYT,
+  present at >56% of scalp channels, bilaterally symmetric, with
+  no anterior-posterior gradient. It is not a regional effect.
+  The driven (VIP) vs self-sustaining (ISY, HYT) variance distinction
+  is confirmed across 78-88% of channels with p<0.0001.

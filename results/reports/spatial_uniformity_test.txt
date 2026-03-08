@@ -1,0 +1,17 @@
+SPATIAL UNIFORMITY TEST — HYT at-4/3 channels
+==================================================
+
+HYT channels within 0.10 of 4/3: 36/64
+
+Moran's I = 0.0906
+Expected I (random) = -0.0159
+Permutation p = 0.0000
+Interpretation: CLUSTERED
+
+Sector breakdown:
+  frontal: 10 at 4/3 (expected 9.6)
+  central: 10 at 4/3 (expected 10.1)
+  parietal: 10 at 4/3 (expected 11.2)
+  occipital: 6 at 4/3 (expected 5.1)
+
+Chi-squared: chi2=0.3341, p=0.9535

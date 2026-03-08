@@ -1,0 +1,86 @@
+PHASE 1 SUMMARY — Rishikesh Meditation Study (Zenodo 57911)
+=============================================================
+Date: 2026-03-08
+Dataset: Braboszcz et al. (2017), 4 groups x 16 subjects
+         CTR (0h), ISY/Shoonya (2625h), VIP/Vipassana (9201h), HYT (15475h)
+
+WHAT PHASE 1 SHOWED:
+---------------------
+1. HYT alpha/gamma power ratio = 1.361, within 2.1% of 4/3 (1.333)
+   - This is the CLOSEST ratio to any Merkabit constant in the dataset
+   - ISY (Shoonya) alpha/gamma = 1.428, within 7.1% of 4/3
+   - Both open-awareness-like traditions approach 4/3
+
+2. Alpha power does NOT monotonically increase with experience
+   - VIP has highest alpha (48.7 dB, p < 0.01 vs all others)
+   - HYT has LOWEST alpha (42.3 dB) — below controls (44.3)
+   - This dissociates experience from simple alpha enhancement
+
+3. Gamma power shows near-monotonic increase with experience
+   - CTR(28.0) < ISY(30.9) ~ VIP(30.5) ~ HYT(31.0)
+   - All meditator groups elevated above controls
+
+4. HYT signature: LOW alpha + HIGH gamma = ratio near 4/3
+   - Distinct from VIP: HIGH alpha + HIGH gamma = ratio far from 4/3
+   - Consistent with HYT achieving cooperative spectral balance
+     rather than driven alpha enhancement
+
+5. No significant variance differences between groups (Levene p=0.81)
+   - But this tests BETWEEN-subject variance of session medians
+   - Cannot test WITHIN-session temporal variance without raw EEG
+
+6. Posterior/frontal gamma ratio ~ 1.00 for all groups
+   - No anterior-posterior gradient differences
+   - Gamma enhancement is spatially uniform
+
+7. MW vs MED difference is small and non-significant for all groups
+   - Alpha power nearly identical between conditions
+   - This is consistent with "trait" rather than "state" effects
+
+WHAT PHASE 1 CANNOT TEST:
+--------------------------
+- KWW alpha_KWW exponent (requires raw EEG time series)
+- |C| convergence to 1/3 (requires Hilbert envelope of raw signal)
+- Z3 symmetry (requires inter-channel phase from raw EEG)
+- Berry phase cancellation (requires instantaneous frequency)
+- Within-session temporal variance of alpha_KWW
+- Comparison with CHB-MIT pre-ictal trajectory
+
+WHAT PHASE 2 WILL TEST:
+------------------------
+Phase 2 requires the full raw EEG dataset (~6.3 GB, Zenodo 2348892)
+containing continuous EEG recordings for all 64 subjects.
+
+Primary tests:
+  P_MED_1: alpha_KWW distribution peaks near 4/3 for experienced groups
+  P_MED_2: HYT/ISY show lower std(alpha_KWW) than novices (self-sustaining)
+  P_MED_3: Plateau |C| converges toward 1/3 at highest experience
+  P_MED_4: Inter-channel coherence shifts toward Z3 (3-fold) symmetry
+  P_MED_5: Net Berry phase accumulation -> 0 for advanced HYT
+  P_MED_6: Shoonya shows lower var(alpha) than VIP at comparable hours
+  P_MED_7: Pre-ictal alpha rises toward 4/3 then crosses; meditation holds
+
+PHASE 1 VERDICT:
+-----------------
+The Phase 1 spectral data provides one clear signal:
+  HYT alpha/gamma = 1.361 ~ 4/3
+
+This is a NECESSARY but not SUFFICIENT condition for the Merkabit
+framework. The alpha/gamma ratio tells us the SPECTRAL BALANCE
+approaches the predicted value, but does not tell us about:
+  - The dynamical signature (KWW exponent)
+  - The coherence amplitude (|C| -> 1/3)
+  - The geometric structure (Z3 symmetry)
+
+Phase 2 is essential. The scripts are saved and ready to run when
+the 6.3 GB raw EEG download is feasible.
+
+CROSS-PLATFORM TABLE UPDATE:
+------------------------------
+Dataset 11 (if Phase 2 confirms):
+  System: Human EEG (meditation)
+  Platform: Scalp EEG, 64 channels
+  Observable: alpha_KWW (autocorrelation stretched exponent)
+  alpha value: TBD (Phase 2)
+  alpha/gamma ratio: 1.361 (Phase 1, HYT group)
+  Domain: Neuroscience / contemplative science

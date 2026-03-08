@@ -1,0 +1,28 @@
+
+=== PHASE 1 DEEP DIVE RESULTS ===
+
+ISY DISTRIBUTION:
+  Bimodal? NO (dip test p=0.7695, BC=0.4766)
+  Valley at ratio = 1.3522, 1.8341
+  P9 percentile within ISY: 37.5
+  P10 percentile within ISY: 37.5
+  Fraction ISY subjects within 0.10 of 4/3: 2/16
+  Fraction HYT subjects within 0.10 of 4/3: 3/16
+
+Z3 SYMMETRY:
+  CTR median Z3 score: 0.3051
+  ISY median Z3 score: 0.4667
+  VIP median Z3 score: 0.3397
+  HYT median Z3 score: 0.6938
+  HYT Z3 > 1? NO
+  HYT vs CTR Mann-Whitney p = 0.0367
+  Spearman (experience vs Z3): rho=0.8000, p=0.2000
+  P_MED_4 prediction: PARTIAL
+
+SPATIAL UNIFORMITY (HYT at-4/3 channels):
+  Moran's I = 0.0906 (p = 0.0000)
+  Interpretation: CLUSTERED
+  Sector breakdown: F=10/17 C=10/18 P=10/20 O=6/9
+  Chi-squared: chi2=0.3341, p=0.9535
+
+=== END ===

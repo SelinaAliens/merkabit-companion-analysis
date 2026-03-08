@@ -5,6 +5,7 @@ Usage:
     python download_data.py          # Download all datasets
     python download_data.py xiang    # Download only Xiang 2024
     python download_data.py chbmit   # Download only CHB-MIT EEG
+    python download_data.py meditation  # Download meditation raw EEG
 """
 import os
 import sys
@@ -43,11 +44,20 @@ DATASETS = {
         'dest': os.path.join(DATA_DIR, 'chbmit'),
         'size_mb': 450,
     },
+    'meditation': {
+        'name': 'Rishikesh Meditation Raw EEG — Braboszcz et al. 2017 (Phase 2)',
+        'doi': '10.5281/zenodo.2348892',
+        'url': 'https://zenodo.org/records/2348892/files/Meditation_EEG_raw.zip',
+        'dest': os.path.join(DATA_DIR, 'meditation', 'raw_eeg'),
+        'size_mb': 6300,
+    },
 }
 
 # Mi 2022 and Randall 2021 data are small enough to be included in the repo directly.
 # Cavedon 2019 data is digitised from the published figure (included as figure2_embedded.png).
 # CHB-MIT data is downloaded per-file from PhysioNet (only chb01 patient files needed).
+# Meditation Phase 1 spectral data (.mat + CSV) is included in data/meditation/ directly.
+# Meditation Phase 2 raw EEG (~6.3 GB) must be downloaded separately.
 # See data/README.md for all sources.
 
 

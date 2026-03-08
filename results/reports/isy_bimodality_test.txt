@@ -1,0 +1,24 @@
+ISY BIMODALITY TEST RESULTS
+==================================================
+
+N subjects: 16
+Subject medians: [np.float64(1.004059741849168), np.float64(1.1579869650076668), np.float64(1.1667799900198736), np.float64(1.2035354559158864), np.float64(1.2787779829301353), np.float64(1.3232730667319628), np.float64(1.4360521955339944), np.float64(1.50328564039351), np.float64(1.5230130839062164), np.float64(1.5315045113554824), np.float64(1.5473061579577403), np.float64(1.5693473938900642), np.float64(1.730244711408976), np.float64(1.763668279537794), np.float64(1.9057323685968979), np.float64(1.9277432985552552)]
+
+Hartigan's dip test: dip=0.0690, p=0.7695
+  Bimodal? NO
+
+Bimodality coefficient: BC=0.4766
+  skewness=0.0818, excess kurtosis=-0.8877
+  Bimodal (BC>0.555)? NO
+
+Shapiro-Wilk: W=0.9645, p=0.7429
+
+KDE valleys: [1.35218204 1.83408241]
+
+ISY P9 channel group mean: 1.3341
+ISY P10 channel group mean: 1.3310
+P9 percentile in subject medians: 37.5
+P10 percentile in subject medians: 37.5
+
+ISY subjects within 0.10 of 4/3: 2/16
+HYT subjects within 0.10 of 4/3: 3/16
