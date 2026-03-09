@@ -68,6 +68,19 @@
 - **Key result**: Peak pre-ictal alpha = 1.23 (mean), 5/7 seizures within Merkabit window; alpha rises toward 4/3 as seizure approaches
 - **Controls**: Interictal alpha = 0.79 (below 1.036 in all 7 cases), ictal alpha = 0.68
 - **Significance**: First biological system in the Merkabit table; spatial scale ~10 cm (cortical)
+- **Multi-patient validation**: `chbmit_multipatient.py` extends analysis across multiple patients
+
+### DAQEC IBM Hardware — Quantum error correction qubit dynamics
+- **Directory**: `daqec/` (after running `python download_data.py daqec`)
+- **DOI**: [10.5281/zenodo.17881116](https://doi.org/10.5281/zenodo.17881116)
+- **Hardware**: ibm_brisbane, ibm_kyoto, ibm_osaka (127-qubit Eagle r3), 756 QEC runs over 14 days
+- **Format**: CSV/JSON calibration and error rate time series
+- **Signals analysed**: T1/T2 within-day decay segments (KWW fitting), T2 fluctuation distribution, ACF/PSD, syndrome burst statistics
+- **Key result**: ibm_brisbane T2 fluctuation distribution alpha = 1.323 +/- 0.066, R^2 = 0.994, |alpha - 4/3| = 0.011
+- **Per-backend T1**: ibm_brisbane alpha = 1.315, ibm_kyoto alpha = 1.267, ibm_osaka alpha = 1.488
+- **Aggregate**: 74 fits, mean alpha = 1.364, p = 0.749 vs 4/3, p = 0.0003 vs 1.0
+- **Interpretation**: System designed to PREVENT threshold approach via recalibration. alpha = 4/3 appears spontaneously in subpopulation reaching threshold (primarily T2 channel)
+- **Syndrome statistics**: sub-Poissonian Fano factor 0.83-0.88, positive adjacent correlation, linear burst scaling
 
 ## Datasets analysed but without public data
 

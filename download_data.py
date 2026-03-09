@@ -6,6 +6,7 @@ Usage:
     python download_data.py xiang    # Download only Xiang 2024
     python download_data.py chbmit   # Download only CHB-MIT EEG
     python download_data.py meditation  # Download meditation raw EEG
+    python download_data.py daqec      # Download DAQEC IBM hardware data
 """
 import os
 import sys
@@ -50,6 +51,13 @@ DATASETS = {
         'url': 'https://zenodo.org/records/2348892/files/Meditation_EEG_raw.zip',
         'dest': os.path.join(DATA_DIR, 'meditation', 'raw_eeg'),
         'size_mb': 6300,
+    },
+    'daqec': {
+        'name': 'DAQEC IBM Hardware QEC — qubit calibration and error rates',
+        'doi': '10.5281/zenodo.17881116',
+        'url': 'https://zenodo.org/records/17881116/files/daqec_data.zip',
+        'dest': os.path.join(DATA_DIR, 'daqec'),
+        'size_mb': 500,
     },
 }
 

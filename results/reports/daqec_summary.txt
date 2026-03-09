@@ -1,0 +1,27 @@
+DAQEC-Benchmark KWW Analysis — IBM Hardware Coherence Drift
+=================================================================
+Date: 2026-03-07
+Data: Zenodo DOI 10.5281/zenodo.17881116
+Hardware: ibm_brisbane, ibm_kyoto, ibm_osaka (127-qubit Eagle r3)
+Total QEC runs: 756
+Monitoring period: 14 days (2025-01-15 to 2025-01-28)
+
+Total KWW fits: 35
+Mean alpha: 2.3427 +/- 1.0532
+Median alpha: 2.9479
+|alpha - 4/3| < 0.15: 1/35 (2.9%)
+|alpha - 4/3| < 0.25: 1/35 (2.9%)
+Mean R2_kww: 0.0855
+Mean R2_exp: 0.0805
+t-test vs 4/3: t=5.670, p=0.0000
+t-test vs 1.0: t=7.542, p=0.0000
+
+Per-backend:
+  ibm_brisbane: N=12, alpha=2.1642+/-1.2930, frac_in_window=0%
+  ibm_kyoto: N=12, alpha=2.6358+/-0.8389, frac_in_window=0%
+  ibm_osaka: N=11, alpha=2.2177+/-0.9998, frac_in_window=9%
+
+Syndrome statistics:
+  Fano factor (all backends): sub-Poissonian (F ~ 0.83-0.88)
+  Adjacent correlation: positive (0.06-0.09), indicates spatial error correlations
+  Burst count scales linearly with code distance
