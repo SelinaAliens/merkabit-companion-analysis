@@ -17,6 +17,7 @@ The stretched exponential exponent alpha ~ 4/3 appears across multiple independe
 | Hurricane Dorian 2019 — pressure | Pressure deepening (1003 to 910 mb) | 1.47 | NOAA recon | ~500 km |
 | CHB-MIT chb01 — peak pre-ictal | EEG seizure cooperative cascade | 1.23 | PhysioNet EEG | ~10 cm |
 | DAQEC ibm_brisbane — T2 dist. | QEC qubit fluctuation distribution | 1.32 | IBM Eagle r3 127q | ~nm |
+| Duri & Cipelletti 2006 | Colloidal gel compressed exp. | 1.35 | DLS (fractal gel) | ~μm |
 | Rishikesh Meditation — HYT | Alpha/gamma spectral ratio | 1.36 | Scalp EEG 64ch | ~10 cm |
 
 The Merkabit signature (|alpha - 4/3| < 0.15, R^2 > 0.90) appears across quantum, plasma, atmospheric, and biological systems. Spatial scale range: quantum dot (~10 nm) to hurricane (~500 km) = 10^10. The meditation analysis extends the biological domain with spectral balance approaching 4/3 in experienced practitioners.
@@ -65,6 +66,7 @@ merkabit-dtc/
 │   ├── delorme_mindwandering_phase2.py  # Within-subject MW vs MED analysis
 │   ├── daqec_kww_analysis.py          # DAQEC IBM hardware T1/T2 KWW (9th dataset)
 │   ├── daqec_acf_psd_analysis.py      # DAQEC ACF, PSD, fluctuation distribution
+│   ├── kww_colloidal_gel.py           # Duri & Cipelletti 2006 colloidal gel (12th dataset)
 │   ├── tsoukalas_alpha_verification.py
 │   ├── nstar_stress_test.py
 │   ├── short_time_scaling_test.py
@@ -143,6 +145,7 @@ See [data/README.md](data/README.md) for full details and Zenodo DOIs.
 - Shoeb, A. H. "Application of machine learning to epileptic seizure onset detection and treatment", PhD Thesis, MIT (2009). CHB-MIT dataset: https://physionet.org/content/chbmit/1.0.0/
 - Braboszcz et al., "Plasticity of visual attention in Isha yoga meditation practitioners", Frontiers in Psychology 8, 1116 (2017). Zenodo: https://doi.org/10.5281/zenodo.57911 (spectral), https://doi.org/10.5281/zenodo.2348892 (raw EEG)
 - DAQEC IBM Hardware QEC data, Zenodo: https://doi.org/10.5281/zenodo.17881116 (ibm_brisbane, ibm_kyoto, ibm_osaka — 756 QEC runs, 14 days)
+- Duri, A. & Cipelletti, L., "Length scale dependence of dynamical heterogeneity in a colloidal fractal gel", Europhys. Lett. 76, 972-978 (2006). DOI: 10.1209/epl/i2006-10357-4
 
 ## License
 

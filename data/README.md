@@ -82,6 +82,17 @@
 - **Interpretation**: System designed to PREVENT threshold approach via recalibration. alpha = 4/3 appears spontaneously in subpopulation reaching threshold (primarily T2 channel)
 - **Syndrome statistics**: sub-Poissonian Fano factor 0.83-0.88, positive adjacent correlation, linear burst scaling
 
+### Duri & Cipelletti 2006 — Colloidal fractal gel (DLS)
+- **Paper**: Europhys. Lett. 76, 972-978 (2006)
+- **DOI**: [10.1209/epl/i2006-10357-4](https://doi.org/10.1209/epl/i2006-10357-4)
+- **Open access**: [HAL hal-00078005](https://hal.science/hal-00078005), [arXiv cond-mat/0606051](https://arxiv.org/abs/cond-mat/0606051)
+- **System**: Polystyrene latex colloidal fractal gel in H2O/D2O, particle radius 10 nm, DLCA clusters R_c ~ 10 um
+- **Method**: Time-resolved multispeckle dynamic light scattering (DLS), q range 0.74-5.22 um^-1
+- **Data**: Digitised from published Figure 1b (compressed exponent p vs wavevector q)
+- **Key result**: 4/8 q-points in Merkabit window, best p = 1.35 +/- 0.07 at q = 1.60 um^-1
+- **Crossing**: p = 4/3 at q* = 1.71 um^-1 (l* = 3675 nm, between cluster and displacement scales)
+- **Significance**: First liquid-phase system in the Merkabit table; completes all four classical states of matter
+
 ## Datasets analysed but without public data
 
 - **Shinjo et al. 2026** — Clean 2D DTC (IBM Heron, 133 qubits). GitHub repo is private.
