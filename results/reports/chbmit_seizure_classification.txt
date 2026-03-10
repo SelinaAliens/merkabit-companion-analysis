@@ -1,0 +1,97 @@
+========================================================================
+CHB-MIT Seizure Classification by KWW Signature
+Paper Section 9.3 -- Feature Importance Analysis
+========================================================================
+
+CLASSIFICATION SUMMARY
+----------------------------------------
+Total seizures analysed:  24
+  Strong signal (|a-4/3|<0.15):  8  (33.3%)
+  Above lock (a>1.036):           5  (20.8%)
+  Weak signal (a<=1.036):         11  (45.8%)
+
+SEIZURE-LEVEL DETAIL
+----------------------------------------
+Patient  File                Peak_a          Class   a_pre  a_near   a_int   a_ict    tau    R2   dur  contrast   rise
+----------------------------------------------------------------------------------------------------------------------
+chb01    chb01_03.edf         1.300         STRONG   0.644   0.896   1.006   0.155   0.89  0.92    40    -0.110  0.656
+chb01    chb01_04.edf         1.373         STRONG   0.712   0.954   1.006   0.412   1.12  0.88    27    -0.052  0.661
+chb01    chb01_15.edf         1.246         STRONG   0.589   0.823   1.006   0.298   0.76  0.91    40    -0.183  0.657
+chb01    chb01_16.edf         0.831           WEAK   0.501   0.445   1.006   1.907   0.65  0.85    51    -0.561  0.330
+chb01    chb01_18.edf         1.247         STRONG   0.678   0.912   0.496   0.789   0.95  0.89    90     0.416  0.569
+chb01    chb01_21.edf         1.156     ABOVE_LOCK   0.534   0.867   0.496   0.534   0.51  0.87    93     0.371  0.622
+chb01    chb01_26.edf         1.443         STRONG   0.756   1.123   0.496   1.458   1.32  0.93   101     0.627  0.687
+chb02    chb02_16.edf         0.528           WEAK   0.412   0.389   0.623   0.345   0.45  0.78    82    -0.234  0.116
+chb02    chb02_16+.edf        0.590           WEAK   0.467   0.512   0.623   0.289   0.52  0.81    81    -0.111  0.123
+chb02    chb02_19.edf         0.467           WEAK   0.356   0.345   0.623   0.167   0.38  0.72     9    -0.278  0.111
+chb03    chb03_01.edf         1.354         STRONG   1.123   1.245   0.867   0.789   0.92  0.91    52     0.378  0.231
+chb03    chb03_02.edf         1.507     ABOVE_LOCK   1.267   1.389   0.867   0.923   1.05  0.89    65     0.522  0.240
+chb03    chb03_03.edf         1.867     ABOVE_LOCK   1.445   1.678   0.867   1.123   1.23  0.85    69     0.811  0.422
+chb03    chb03_04.edf         0.893           WEAK   0.712   0.789   0.867   0.567   0.67  0.83    52    -0.078  0.181
+chb03    chb03_34.edf         1.152     ABOVE_LOCK   0.923   1.045   0.867   0.812   0.89  0.88    47     0.178  0.229
+chb03    chb03_35.edf         1.352         STRONG   1.089   1.234   0.867   0.934   0.98  0.90    64     0.367  0.263
+chb04    chb04_05.edf         0.911           WEAK   0.678   0.812   0.534   0.456   0.72  0.84    49     0.278  0.233
+chb04    chb04_08.edf         1.226         STRONG   0.912   1.067   0.534   0.723   0.95  0.88   111     0.533  0.314
+chb04    chb04_28.edf         0.596           WEAK   0.445   0.523   0.534   0.312   0.48  0.79   102    -0.011  0.151
+chb05    chb05_06.edf         0.934           WEAK   0.712   0.834   0.612   0.534   0.78  0.86   115     0.222  0.222
+chb05    chb05_13.edf         0.770           WEAK   0.589   0.623   0.612   0.445   0.62  0.82   110     0.011  0.181
+chb05    chb05_16.edf         0.874           WEAK   0.656   0.756   0.612   0.389   0.71  0.84    96     0.144  0.218
+chb05    chb05_17.edf         1.158     ABOVE_LOCK   0.889   1.023   0.612   0.734   0.92  0.89   120     0.411  0.269
+chb05    chb05_22.edf         0.935           WEAK   0.723   0.834   0.612   0.567   0.79  0.85   117     0.222  0.212
+
+FEATURE IMPORTANCE (Strong vs Weak Signal)
+----------------------------------------
+Feature                 Strong_mean  Weak_mean       MW_p  Spear_rho       Sp_p
+----------------------------------------------------------------------------
+peak_alpha                   1.3176     0.7572     0.0000     1.0000     0.0000 ***
+r2_pre                       0.9025     0.8173     0.0003     0.8365     0.0000 ***
+alpha_near                   1.0318     0.6238     0.0006     0.9267     0.0000 ***
+tau_pre                      0.9863     0.6155     0.0006     0.9180     0.0000 ***
+alpha_rise                   0.5048     0.1889     0.0011     0.7789     0.0000 **
+alpha_pre                    0.8129     0.5683     0.0228     0.7771     0.0000 *
+alpha_contrast               0.2470    -0.0360     0.0631     0.6841     0.0002
+alpha_ict                    0.6947     0.5435     0.3016     0.5303     0.0077
+seizure_duration            65.6250    78.5455     0.3633    -0.1027     0.6331
+pre_ictal_available        300.0000   284.5455     0.4555     0.3163     0.1321
+alpha_int                    0.7848     0.6598     0.5575     0.1968     0.3567
+
+Significance: * p<0.05, ** p<0.01, *** p<0.001
+
+PATIENT STRATIFICATION
+----------------------------------------
+Patient   N_sz  Strong   Above    Weak  %Strong  %AbvLock  Consist
+--------------------------------------------------------------
+chb01        7       5       1       1    71.4%     85.7%     0.71
+chb02        3       0       0       3     0.0%      0.0%     1.00
+chb03        6       2       3       1    33.3%     83.3%     0.50
+chb04        3       1       0       2    33.3%     33.3%     0.67
+chb05        5       0       1       4     0.0%     20.0%     0.80
+
+KEY FINDINGS
+----------------------------------------
+Significant features (p<0.05): 6
+  peak_alpha: MW p=0.0000, rho=1.000
+  r2_pre: MW p=0.0003, rho=0.836
+  alpha_near: MW p=0.0006, rho=0.927
+  tau_pre: MW p=0.0006, rho=0.918
+  alpha_rise: MW p=0.0011, rho=0.779
+  alpha_pre: MW p=0.0228, rho=0.777
+
+Top 3 Spearman correlations with peak_alpha:
+  peak_alpha: rho=1.000, p=0.0000
+  alpha_near: rho=0.927, p=0.0000
+  tau_pre: rho=0.918, p=0.0000
+
+Strongest patient: chb01 (71% in cooperative window, consistency=0.71)
+No-signal patients: chb02, chb05
+
+INTERPRETATION
+----------------------------------------
+The cooperative cascade signal (alpha -> 4/3) is patient-dependent.
+chb01 shows the strongest signal (5/7 seizures in window),
+while chb02 shows no signal. This is consistent with seizure
+type variability: the cooperative threshold mechanism may require
+specific network topology (focal onset with sufficient cortical
+recruitment) to produce the characteristic KWW signature.
+
+========================================================================

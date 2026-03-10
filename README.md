@@ -67,6 +67,11 @@ merkabit-dtc/
 │   ├── daqec_kww_analysis.py          # DAQEC IBM hardware T1/T2 KWW (9th dataset)
 │   ├── daqec_acf_psd_analysis.py      # DAQEC ACF, PSD, fluctuation distribution
 │   ├── kww_colloidal_gel.py           # Duri & Cipelletti 2006 colloidal gel (12th dataset)
+│   ├── phase2_spectral_ratio.py       # Phase 2 spectral ratio replication from raw EEG
+│   ├── med_p2_13_h2_mechanism.py      # VIP H2 mechanism in low-Z3 windows
+│   ├── chbmit_permutation_test.py     # Permutation test for CHB-MIT in-window fraction
+│   ├── chbmit_seizure_classification.py  # Seizure classification by KWW signature
+│   ├── meta_analysis_forest_plot.py   # Cross-platform meta-analysis & forest plot (Fig. 7)
 │   ├── tsoukalas_alpha_verification.py
 │   ├── nstar_stress_test.py
 │   ├── short_time_scaling_test.py
