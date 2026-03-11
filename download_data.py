@@ -59,6 +59,22 @@ DATASETS = {
         'dest': os.path.join(DATA_DIR, 'daqec'),
         'size_mb': 500,
     },
+    'quasars': {
+        'name': 'MacLeod et al. 2010 — SDSS Stripe 82 quasar variability catalog',
+        'doi': 'VizieR J/ApJ/721/1014',
+        'url': 'https://vizier.cds.unistra.fr/viz-bin/votable/-A?-source=J/ApJ/721/1014/table2&-out.max=unlimited',
+        'dest': os.path.join(DATA_DIR, 'quasars'),
+        'size_mb': 5,
+        'note': 'VOTable catalog; individual LCs from SDSS DR7 or ZTF',
+    },
+    'perseus': {
+        'name': 'Perseus cluster Chandra ACIS-S — deep X-ray observations',
+        'doi': 'Chandra Data Archive',
+        'url_note': 'https://cxc.cfa.harvard.edu/cda/ — ObsIDs 3209, 4289, 4952, 6139, 6145, 6146',
+        'dest': os.path.join(DATA_DIR, 'perseus'),
+        'size_mb': 3000,
+        'note': 'Download via CIAO or CDA; p7_perseus_xray.py generates synthetic data if unavailable',
+    },
 }
 
 # Mi 2022 and Randall 2021 data are small enough to be included in the repo directly.

@@ -29,6 +29,8 @@ data/dorian/
 data/chbmit/
 data/meditation/raw_eeg/
 data/daqec/
+data/quasars/
+data/perseus/
 
 # Large archives
 *.zip

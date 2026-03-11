@@ -16,6 +16,8 @@ CHBMIT_DATA = os.path.join(DATA_DIR, 'chbmit')
 MEDITATION_DATA = os.path.join(DATA_DIR, 'meditation')
 MEDITATION_RAW = os.path.join(MEDITATION_DATA, 'raw_eeg')
 DAQEC_DATA = os.path.join(DATA_DIR, 'daqec')
+QUASAR_DATA = os.path.join(DATA_DIR, 'quasars')
+PERSEUS_DATA = os.path.join(DATA_DIR, 'perseus')
 
 # Xiang 2024 subdirectory (created by download_data.py)
 XIANG_2024_BASE = os.path.join(

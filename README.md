@@ -72,6 +72,9 @@ merkabit-dtc/
 │   ├── chbmit_permutation_test.py     # Permutation test for CHB-MIT in-window fraction
 │   ├── chbmit_seizure_classification.py  # Seizure classification by KWW signature
 │   ├── meta_analysis_forest_plot.py   # Cross-platform meta-analysis & forest plot (Fig. 7)
+│   ├── p6_super_edd.py              # P6: SDSS S82 super-Eddington quasar sample selection
+│   ├── p6_quasar_kww.py             # P6: Quasar structure function KWW analysis
+│   ├── p7_perseus_xray.py           # P7: Perseus cluster Chandra X-ray AGN feedback
 │   ├── tsoukalas_alpha_verification.py
 │   ├── nstar_stress_test.py
 │   ├── short_time_scaling_test.py
@@ -98,6 +101,8 @@ merkabit-dtc/
 │   ├── chbmit/              # EDF files (downloaded via download_data.py)
 │   ├── meditation/          # MAT + CSV spectral data (included, ~62 KB)
 │   ├── daqec/               # IBM Heron QEC data (downloaded via download_data.py)
+│   ├── quasars/             # MacLeod 2010 S82 catalog (downloaded / VizieR)
+│   ├── perseus/             # Chandra ACIS-S event files (downloaded / CDA)
 │   └── README.md            # Data sources and DOIs
 │
 └── results/                 # Pre-computed figures and reports
@@ -151,6 +156,8 @@ See [data/README.md](data/README.md) for full details and Zenodo DOIs.
 - Braboszcz et al., "Plasticity of visual attention in Isha yoga meditation practitioners", Frontiers in Psychology 8, 1116 (2017). Zenodo: https://doi.org/10.5281/zenodo.57911 (spectral), https://doi.org/10.5281/zenodo.2348892 (raw EEG)
 - DAQEC IBM Hardware QEC data, Zenodo: https://doi.org/10.5281/zenodo.17881116 (ibm_brisbane, ibm_kyoto, ibm_osaka — 756 QEC runs, 14 days)
 - Duri, A. & Cipelletti, L., "Length scale dependence of dynamical heterogeneity in a colloidal fractal gel", Europhys. Lett. 76, 972-978 (2006). DOI: 10.1209/epl/i2006-10357-4
+- MacLeod, C. L. et al., "Modeling the Time Variability of SDSS Stripe 82 Quasars as a Damped Random Walk", ApJ 721, 1014 (2010). Catalog: VizieR J/ApJ/721/1014
+- Chandra Data Archive — Perseus cluster deep observations: ObsIDs 3209, 4289, 4952, 6139, 6145, 6146. https://cxc.cfa.harvard.edu/cda/
 
 ## License
 
