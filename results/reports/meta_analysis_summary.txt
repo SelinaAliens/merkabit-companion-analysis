@@ -1,48 +1,50 @@
 CROSS-PLATFORM KWW META-ANALYSIS SUMMARY
 Paper Section 9.3 / Figure 7
-Generated: 2026-03-10T14:48:05.935763
+Generated: 2026-03-11T21:37:11.865703
 ======================================================================
 
-ALL 12 MEASUREMENTS
+ALL 14 MEASUREMENTS
 ===================
-  k = 12 measurements
-  Fixed-effects weighted mean:  1.3476 +/- 0.0210
-  95% CI: [1.3064, 1.3887]
-  Cochran Q = 3.43  (df = 11, p = 0.9838)
+  k = 14 measurements
+  Fixed-effects weighted mean:  1.3393 +/- 0.0197
+  95% CI: [1.3008, 1.3779]
+  Cochran Q = 5.31  (df = 13, p = 0.9678)
   I^2 = 0.0%
   DerSimonian-Laird tau^2 = 0.000000
   Random-effects: identical to fixed-effects (tau^2 = 0)
-  Test vs 4/3 (FE): z = 0.677, p = 0.4982
-  Test vs 4/3 (RE): z = 0.677, p = 0.4982
+  Test vs 4/3 (FE): z = 0.306, p = 0.7596
+  Test vs 4/3 (RE): z = 0.306, p = 0.7596
 
-11 KWW MEASUREMENTS (excl. meditation ratio)
+13 KWW MEASUREMENTS (excl. meditation ratio)
 ============================================
-  k = 11 measurements
-  Fixed-effects weighted mean:  1.3303 +/- 0.0317
-  95% CI: [1.2681, 1.3925]
-  Cochran Q = 2.90  (df = 10, p = 0.9837)
+  k = 13 measurements
+  Fixed-effects weighted mean:  1.3183 +/- 0.0276
+  95% CI: [1.2642, 1.3724]
+  Cochran Q = 4.13  (df = 12, p = 0.9810)
   I^2 = 0.0%
   DerSimonian-Laird tau^2 = 0.000000
   Random-effects: identical to fixed-effects (tau^2 = 0)
-  Test vs 4/3 (FE): z = -0.096, p = 0.9232
-  Test vs 4/3 (RE): z = -0.096, p = 0.9232
+  Test vs 4/3 (FE): z = -0.545, p = 0.5858
+  Test vs 4/3 (RE): z = -0.545, p = 0.5858
 
 PER-MEASUREMENT DETAIL
 ==========================================================================================
  #  Name                               alpha      SE             95% CI     wt%  Domain      
 ------------------------------------------------------------------------------------------
- 1  Xiang Z0 (clean DTC)               1.344   0.081     [1.185, 1.503]    6.7%  Quantum     
- 2  Zhang Q3 (Ge/SiGe QD)              1.355   0.221     [0.922, 1.788]    0.9%  Quantum     
- 3  Tsoukalas 2026 (Ge/SiGe)           1.442   0.306     [0.842, 2.042]    0.5%  Quantum     
- 4  Mn₃Sn 570ps (Ogawa)                1.283   0.098     [1.091, 1.475]    4.6%  Magnetic    
- 5  ASDEX Idiv tail                    1.273   0.123     [1.032, 1.514]    2.9%  Plasma      
- 6  ASDEX ∇Ti recovery                 1.432   0.100     [1.236, 1.628]    4.4%  Plasma      
+ 1  Xiang Z0 (clean DTC)               1.344   0.081     [1.185, 1.503]    5.9%  Quantum     
+ 2  Zhang Q3 (Ge/SiGe QD)              1.355   0.221     [0.922, 1.788]    0.8%  Quantum     
+ 3  Tsoukalas 2026 (Ge/SiGe)           1.442   0.306     [0.842, 2.042]    0.4%  Quantum     
+ 4  Mn₃Sn 570ps (Ogawa)                1.283   0.098     [1.091, 1.475]    4.0%  Magnetic    
+ 5  ASDEX Idiv tail                    1.273   0.123     [1.032, 1.514]    2.6%  Plasma      
+ 6  ASDEX ∇Ti recovery                 1.432   0.100     [1.236, 1.628]    3.9%  Plasma      
  7  Dorian wind (TS→Cat5)              1.435   0.322     [0.804, 2.066]    0.4%  Atmosphere  
  8  Dorian pressure                    1.473   0.467     [0.558, 2.388]    0.2%  Atmosphere  
- 9  IBM brisbane T2                    1.323   0.066     [1.194, 1.452]   10.1%  Quantum     
-10  CHB-MIT chb01 peak α               1.228   0.105     [1.022, 1.434]    4.0%  Biological  
-11  HYT meditation α/γ                 1.361   0.028     [1.306, 1.416]   56.2%  Neural      
-12  Colloidal gel q=1.60               1.350   0.070     [1.213, 1.487]    9.0%  Liquid      
+ 9  IBM brisbane T2                    1.323   0.066     [1.194, 1.452]    8.9%  Quantum     
+10  CHB-MIT chb01 peak α               1.228   0.105     [1.022, 1.434]    3.5%  Biological  
+11  HYT meditation α/γ                 1.361   0.028     [1.306, 1.416]   49.3%  Neural      
+12  Colloidal gel q=1.60               1.350   0.070     [1.213, 1.487]    7.9%  Liquid      
+13  SDSS S82+ZTF near-Edd              1.253   0.066     [1.124, 1.382]    8.9%  Astrophysical
+14  Perseus ICM (Chandra)              1.353   0.106     [1.145, 1.561]    3.4%  Astrophysical
 ------------------------------------------------------------------------------------------
 
 NEGATIVE CONTROLS
@@ -52,17 +54,17 @@ NEGATIVE CONTROLS
  C3  Xiang dis=0.4 (crossover)          0.950   0.100     [0.754, 1.146]      --  Quantum     
 ------------------------------------------------------------------------------------------
 
-COMPARISON: 12 vs 11 KWW
+COMPARISON: 14 vs 13 KWW
 ==================================================
-                             All 12        11 KWW
-  Weighted mean              1.3476        1.3303
-  SE                         0.0210        0.0317
-  95% CI lo                  1.3064        1.2681
-  95% CI hi                  1.3887        1.3925
-  Q                            3.43          2.90
-  Q p-value                  0.9838        0.9837
+                             All 14        13 KWW
+  Weighted mean              1.3393        1.3183
+  SE                         0.0197        0.0276
+  95% CI lo                  1.3008        1.2642
+  95% CI hi                  1.3779        1.3724
+  Q                            5.31          4.13
+  Q p-value                  0.9678        0.9810
   I^2 (%)                       0.0           0.0
   tau^2                    0.000000      0.000000
-  p vs 4/3 (FE)              0.4982        0.9232
-  p vs 4/3 (RE)              0.4982        0.9232
+  p vs 4/3 (FE)              0.7596        0.5858
+  p vs 4/3 (RE)              0.7596        0.5858
 

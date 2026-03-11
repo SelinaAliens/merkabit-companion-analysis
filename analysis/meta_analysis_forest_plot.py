@@ -4,7 +4,7 @@ Meta-Analysis and Forest Plot for Cross-Platform KWW Measurements
 Paper Section 9.3 / Figure 7
 
 Computes inverse-variance weighted fixed-effects and DerSimonian-Laird
-random-effects meta-analysis for all 12 cooperative-window measurements
+random-effects meta-analysis for all 14 cooperative-window measurements
 from Table 9, plus 3 negative controls.
 
 Generates:
@@ -31,7 +31,7 @@ import numpy as np
 from scipy import stats
 
 # ============================================================================
-# DATA: All 12 measurements from Table 9 (cooperative window only)
+# DATA: All 14 measurements from Table 9 (cooperative window only)
 # ============================================================================
 MEASUREMENTS = [
     {'name': 'Xiang Z0 (clean DTC)', 'alpha': 1.344, 'se': 0.081, 'domain': 'Quantum', 'state': 'Condensate'},
@@ -46,6 +46,8 @@ MEASUREMENTS = [
     {'name': 'CHB-MIT chb01 peak α', 'alpha': 1.228, 'se': 0.105, 'domain': 'Biological', 'state': 'Biological'},
     {'name': 'HYT meditation α/γ', 'alpha': 1.361, 'se': 0.028, 'domain': 'Neural', 'state': 'Neural'},
     {'name': 'Colloidal gel q=1.60', 'alpha': 1.35, 'se': 0.07, 'domain': 'Liquid', 'state': 'Liquid'},
+    {'name': 'SDSS S82+ZTF near-Edd', 'alpha': 1.253, 'se': 0.066, 'domain': 'Astrophysical', 'state': 'Plasma'},
+    {'name': 'Perseus ICM (Chandra)', 'alpha': 1.353, 'se': 0.106, 'domain': 'Astrophysical', 'state': 'Plasma'},
 ]
 
 # Negative controls (plotted separately, excluded from meta-analysis)
@@ -69,6 +71,7 @@ DOMAIN_COLORS = {
     'Neural': '#228833',
     'Liquid': '#AA3377',
     'Magnetic': '#66CCEE',
+    'Astrophysical': '#FF8800',
 }
 
 
@@ -196,9 +199,9 @@ def make_forest_plot(measurements, controls, res_all, res_kww, outpath):
     Publication-quality forest plot (Figure 7).
 
     Layout (bottom to top):
-        - Diamond for weighted mean (all 12)
-        - Diamond for weighted mean (11 KWW)
-        - 12 measurements (index 0 at bottom)
+        - Diamond for weighted mean (all 14)
+        - Diamond for weighted mean (13 KWW)
+        - 14 measurements (index 0 at bottom)
         - 3 negative controls (gray)
     """
     n_meas = len(measurements)
@@ -271,19 +274,19 @@ def make_forest_plot(measurements, controls, res_all, res_kww, outpath):
     # --- Separator line ---
     ax.axhline(y_sep, color='#aaaaaa', lw=0.8, ls='-', zorder=1)
 
-    # --- Diamond for weighted mean (all 12) ---
+    # --- Diamond for weighted mean (all 14) ---
     _draw_diamond(ax, y_diamond_all, res_all['alpha_wm'], res_all['ci_lo'],
                   res_all['ci_hi'], color='#D32F2F')
-    y_labels.append('FE mean (all 12)')
+    y_labels.append('FE mean (all 14)')
     y_positions.append(y_diamond_all)
     annotations.append(
         f"{res_all['alpha_wm']:.3f} +/- {res_all['se_wm']:.3f}  [100%]"
     )
 
-    # --- Diamond for weighted mean (11 KWW) ---
+    # --- Diamond for weighted mean (13 KWW) ---
     _draw_diamond(ax, y_diamond_kww, res_kww['alpha_wm'], res_kww['ci_lo'],
                   res_kww['ci_hi'], color='#1565C0')
-    y_labels.append('FE mean (11 KWW)')
+    y_labels.append('FE mean (13 KWW)')
     y_positions.append(y_diamond_kww)
     annotations.append(
         f"{res_kww['alpha_wm']:.3f} +/- {res_kww['se_wm']:.3f}  [100%]"
@@ -310,12 +313,12 @@ def make_forest_plot(measurements, controls, res_all, res_kww, outpath):
 
     # --- Bottom statistics text ---
     stat_text = (
-        f"All 12: Q = {res_all['Q']:.2f} (df={res_all['Q_df']}, "
+        f"All 14: Q = {res_all['Q']:.2f} (df={res_all['Q_df']}, "
         f"p = {res_all['Q_p']:.2f}),  "
         "I$^2$ = " + f"{res_all['I2']:.1f}%,  "
         "$\\tau^2$ = " + f"{res_all['tau2']:.4f},  "
         f"p vs 4/3 = {res_all['p_vs_43']:.2f}\n"
-        f"11 KWW: Q = {res_kww['Q']:.2f} (df={res_kww['Q_df']}, "
+        f"13 KWW: Q = {res_kww['Q']:.2f} (df={res_kww['Q_df']}, "
         f"p = {res_kww['Q_p']:.2f}),  "
         "I$^2$ = " + f"{res_kww['I2']:.1f}%,  "
         f"p vs 4/3 = {res_kww['p_vs_43']:.2f}"
@@ -387,18 +390,18 @@ def main():
     print()
 
     # ------------------------------------------------------------------
-    # 1. All 12 measurements
+    # 1. All 14 measurements
     # ------------------------------------------------------------------
-    res_all = meta_analysis(MEASUREMENTS, label='All 12 measurements')
-    report_all = format_report(res_all, 'ALL 12 MEASUREMENTS')
+    res_all = meta_analysis(MEASUREMENTS, label='All 14 measurements')
+    report_all = format_report(res_all, 'ALL 14 MEASUREMENTS')
     print(report_all)
 
     # ------------------------------------------------------------------
-    # 2. 11-KWW subset (exclude meditation ratio, index 10)
+    # 2. 13-KWW subset (exclude meditation ratio, index 10)
     # ------------------------------------------------------------------
     kww_subset = [m for i, m in enumerate(MEASUREMENTS) if i != 10]
-    res_kww = meta_analysis(kww_subset, label='11 KWW measurements')
-    report_kww = format_report(res_kww, '11 KWW MEASUREMENTS (excl. meditation ratio)')
+    res_kww = meta_analysis(kww_subset, label='13 KWW measurements')
+    report_kww = format_report(res_kww, '13 KWW MEASUREMENTS (excl. meditation ratio)')
     print(report_kww)
     # ------------------------------------------------------------------
     # 3. Per-measurement detail table
@@ -436,9 +439,9 @@ def main():
     # 4. Comparison block
     # ------------------------------------------------------------------
     compare_lines = []
-    compare_lines.append("COMPARISON: 12 vs 11 KWW")
+    compare_lines.append("COMPARISON: 14 vs 13 KWW")
     compare_lines.append("=" * 50)
-    compare_lines.append(f"  {'':20} {'All 12':>12}  {'11 KWW':>12}")
+    compare_lines.append(f"  {'':20} {'All 14':>12}  {'13 KWW':>12}")
     compare_lines.append(f"  {'Weighted mean':20} {res_all['alpha_wm']:>12.4f}  {res_kww['alpha_wm']:>12.4f}")
     compare_lines.append(f"  {'SE':20} {res_all['se_wm']:>12.4f}  {res_kww['se_wm']:>12.4f}")
     compare_lines.append(f"  {'95% CI lo':20} {res_all['ci_lo']:>12.4f}  {res_kww['ci_lo']:>12.4f}")
@@ -475,8 +478,8 @@ def main():
     json_data = {
         'measurements': MEASUREMENTS,
         'controls': CONTROLS,
-        'meta_all_12': res_all,
-        'meta_11_kww': res_kww,
+        'meta_all_14': res_all,
+        'meta_13_kww': res_kww,
         'reference_alpha': float(ALPHA_REF),
         'cooperative_window': [float(COOP_LO), float(COOP_HI)],
     }
