@@ -762,13 +762,13 @@ if valid.sum() > 0:
 txt += "\n" + "=" * 40 + "\n"
 if 0.97 in best:
     a97 = best[0.97]['alpha']
-    if abs(a97 - 1.3) < 0.15:
+    if abs(a97 - 4/3) < 0.15:
         txt += f"\nVERDICT: alpha(g=0.97) = {a97:.3f}\n"
-        txt += "CLOSE TO 1.3 - Merkabit signature\n"
+        txt += "CLOSE TO 4/3 - Merkabit signature\n"
         txt += "detected in MBL DTC phase!"
     else:
         txt += f"\nVERDICT: alpha(g=0.97) = {a97:.3f}\n"
-        txt += f"|alpha - 1.3| = {abs(a97-1.3):.3f}\n"
+        txt += f"|alpha - 4/3| = {abs(a97-4/3):.3f}\n"
 
 ax.text(0.05, 0.95, txt, transform=ax.transAxes,
        fontsize=9, verticalalignment='top', fontfamily='monospace',
@@ -802,22 +802,22 @@ if best:
         a94 = best[0.94]['alpha']
         a97 = best[0.97]['alpha']
 
-        print(f"\n  Does alpha=1.3 appear specifically in MBL DTC (g=0.97)?")
-        print(f"    alpha(0.97) = {a97:.4f}, |alpha - 1.3| = {abs(a97-1.3):.4f}")
+        print(f"\n  Does alpha=4/3 appear specifically in MBL DTC (g=0.97)?")
+        print(f"    alpha(0.97) = {a97:.4f}, |alpha - 4/3| = {abs(a97-4/3):.4f}")
 
         print(f"\n  Does it fall away at g=0.94 and g=0.60?")
-        print(f"    alpha(0.94) = {a94:.4f}, |alpha - 1.3| = {abs(a94-1.3):.4f}")
-        print(f"    alpha(0.60) = {a60:.4f}, |alpha - 1.3| = {abs(a60-1.3):.4f}")
+        print(f"    alpha(0.94) = {a94:.4f}, |alpha - 4/3| = {abs(a94-4/3):.4f}")
+        print(f"    alpha(0.60) = {a60:.4f}, |alpha - 4/3| = {abs(a60-4/3):.4f}")
 
-        if abs(a97 - 1.3) < abs(a94 - 1.3) and abs(a97 - 1.3) < abs(a60 - 1.3):
-            print(f"\n  ==> alpha IS closest to 1.3 at g=0.97 (MBL DTC)")
-            if abs(a97 - 1.3) < 0.15:
-                print(f"  ==> AND within 0.15 of 1.3 — Merkabit-DTC connection supported")
+        if abs(a97 - 4/3) < abs(a94 - 4/3) and abs(a97 - 4/3) < abs(a60 - 4/3):
+            print(f"\n  ==> alpha IS closest to 4/3 at g=0.97 (MBL DTC)")
+            if abs(a97 - 4/3) < 0.15:
+                print(f"  ==> AND within 0.15 of 4/3 — Merkabit-DTC connection supported")
             else:
-                print(f"  ==> BUT distance {abs(a97-1.3):.3f} is substantial")
+                print(f"  ==> BUT distance {abs(a97-4/3):.3f} is substantial")
         else:
-            closest_g = min(best.keys(), key=lambda g: abs(best[g]['alpha'] - 1.3))
-            print(f"\n  ==> alpha is closest to 1.3 at g={closest_g:.2f}, not at g=0.97")
+            closest_g = min(best.keys(), key=lambda g: abs(best[g]['alpha'] - 4/3))
+            print(f"\n  ==> alpha is closest to 4/3 at g={closest_g:.2f}, not at g=0.97")
 
 # Save report
 with open(os.path.join(REPORTS_DIR, 'subharmonic_report.txt'), 'w', encoding='utf-8') as f:

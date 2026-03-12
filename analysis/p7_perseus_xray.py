@@ -55,7 +55,7 @@ warnings.filterwarnings('ignore')
 # CONFIGURATION
 # ============================================================================
 ALPHA_TARGET = 4.0 / 3.0  # 1.33333...
-ALPHA_WINDOW = (1.18, 1.48)  # |alpha - 4/3| < 0.15
+ALPHA_WINDOW = (ALPHA_TARGET - 0.15, ALPHA_TARGET + 0.15)  # |alpha - 4/3| < 0.15
 
 # Chandra ObsIDs for deep Perseus observations
 OBSIDS = [3209, 4289, 4952, 6139, 6145, 6146]

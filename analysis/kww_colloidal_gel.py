@@ -66,15 +66,15 @@ print("-" * 55)
 four_thirds = 4.0 / 3.0
 for i in range(len(q_data)):
     dev = abs(p_data[i] - four_thirds)
-    # Window: [1.25, 1.47]
-    in_window = "YES" if 1.25 <= p_data[i] <= 1.47 else "no"
+    # Window: |p - 4/3| < 0.15
+    in_window = "YES" if abs(p_data[i] - four_thirds) < 0.15 else "no"
     # Error bar overlap with 4/3
     overlaps = "overlap" if abs(p_data[i] - four_thirds) <= p_err[i] else ""
     print(f"{q_data[i]:10.2f}  {p_data[i]:6.2f}  {p_err[i]:6.2f}  {dev:8.3f}  {in_window:>8}  {overlaps}")
 
-# Find which points are in the [1.25, 1.47] window
-in_window_mask = (p_data >= 1.25) & (p_data <= 1.47)
-print(f"\nPoints in [1.25, 1.47] window: {np.sum(in_window_mask)}/{len(p_data)}")
+# Find which points are in the |p - 4/3| < 0.15 window
+in_window_mask = np.abs(p_data - four_thirds) < 0.15
+print(f"\nPoints in |p - 4/3| < 0.15 window: {np.sum(in_window_mask)}/{len(p_data)}")
 print(f"q range in window: {q_data[in_window_mask].min():.2f} – {q_data[in_window_mask].max():.2f} μm⁻¹")
 
 # Points where error bar overlaps 4/3
@@ -329,7 +329,7 @@ window_q = q_data[in_window_mask]
 if len(window_points) > 0:
     mean_p_window = np.mean(window_points)
     std_p_window = np.std(window_points, ddof=1) if len(window_points) > 1 else best_err
-    print(f"\nMean p in [1.25, 1.47] window: {mean_p_window:.3f} ± {std_p_window:.3f}")
+    print(f"\nMean p in |p - 4/3| < 0.15 window: {mean_p_window:.3f} ± {std_p_window:.3f}")
     print(f"  {len(window_points)} points in window")
     print(f"  q range: {window_q.min():.2f} – {window_q.max():.2f} μm⁻¹")
     print(f"  |mean - 4/3| = {abs(mean_p_window - four_thirds):.3f}")
@@ -390,7 +390,7 @@ ax.errorbar(q_data, p_data, yerr=p_err, fmt='s', color='navy',
 ax.plot(q_fine, p_fit, 'b--', alpha=0.5, label='Empirical fit')
 ax.axhline(y=four_thirds, color='red', linestyle='-', linewidth=1.5,
            alpha=0.7, label=f'α = 4/3 = {four_thirds:.4f}')
-ax.axhspan(1.25, 1.47, alpha=0.1, color='red', label='Window [1.25, 1.47]')
+ax.axhspan(four_thirds - 0.15, four_thirds + 0.15, alpha=0.1, color='red', label='|p - 4/3| < 0.15')
 ax.axhline(y=1.5, color='gray', linestyle=':', alpha=0.5, label='p = 3/2 (theory)')
 ax.axhline(y=1.0, color='gray', linestyle=':', alpha=0.5)
 if q_cross_emp:
@@ -414,7 +414,7 @@ ax.plot(q_model[valid_m], p_model[valid_m], 'g-', linewidth=2,
 ax.errorbar(q_data, p_data, yerr=p_err, fmt='s', color='navy',
             markersize=6, capsize=3, alpha=0.7, label='Digitised data')
 ax.axhline(y=four_thirds, color='red', linestyle='-', linewidth=1.5, alpha=0.7)
-ax.axhspan(1.25, 1.47, alpha=0.1, color='red')
+ax.axhspan(four_thirds - 0.15, four_thirds + 0.15, alpha=0.1, color='red')
 if q_cross_model:
     ax.axvline(x=q_cross_model, color='green', linestyle='--', alpha=0.5)
     ax.annotate(f'Model q* = {q_cross_model:.2f}\nℓ* = {ell_cross_model*1000:.0f} nm',
