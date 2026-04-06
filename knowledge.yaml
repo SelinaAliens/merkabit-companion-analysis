@@ -305,6 +305,48 @@ units:
       - "seizure prediction"
       - "classification"
 
+  # PUBLISHED PAPERS (ZENODO)
+  - id: paper3-not-an-error
+    path: https://zenodo.org/records/19437419
+    intent: >
+      Paper 3: The Rotation Gap Is Not An Error (DOI: 10.5281/zenodo.19437419, 2026-04-06).
+      756 experiments on IBM Eagle r3. Sub-Poissonian syndrome statistics (F=0.856 ± 0.03)
+      vs super-Poissonian on Google Willow (F=2.42). Hardware validation of ternary structure.
+    scope: project
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: critical
+    triggers:
+      - "Paper 3"
+      - "not an error"
+      - "zenodo 19437419"
+      - "F=0.856"
+      - "sub-Poissonian hardware"
+
+  - id: paper4-rotation-gap-is-flat
+    path: https://zenodo.org/records/19417293
+    intent: >
+      Paper 4: The Rotation Gap Is Flat (DOI: 10.5281/zenodo.19417293, 2026-04-04).
+      Binary-ternary hybrid architecture on the Eisenstein lattice. Two-scale independence:
+      2450× combined suppression, zero tunable parameters, zero qubit overhead.
+      Optimal coupling enables B31 algorithms under T75 protection with fidelity > 0.999.
+    scope: project
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: critical
+    triggers:
+      - "Paper 4"
+      - "rotation gap is flat"
+      - "zenodo 19417293"
+      - "2450x"
+      - "fault tolerant migration"
+
   # QUANTUM HARDWARE — IBM (DAQEC)
   - id: daqec-kww
     path: analysis/daqec_kww_analysis.py
