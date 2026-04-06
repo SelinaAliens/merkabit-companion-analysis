@@ -1,4 +1,4 @@
-kcp_version: "0.6"
+kcp_version: "0.14"
 project: "merkabit-companion-analysis"
 description: >
   Cross-platform empirical evidence for the Merkabit 4/3 threshold signature.
@@ -22,13 +22,13 @@ units:
       Entry point: cross-platform comparison table (11 datasets, scales from nm to 500km),
       Merkabit signature definition (|α-4/3| < 0.15, R² > 0.90), repo structure,
       setup instructions, download instructions for raw datasets.
-    scope: "overview — cross-platform comparison and repo navigation"
-    audience: ["newcomer", "physicist", "data scientist"]
-    validated: true
+    scope: global
+    audience: ["human", "data scientist"]
+    validated: "2026-04-06"
     hints:
       load_strategy: eager
       token_estimate: 500
-      priority: high
+      priority: critical
     triggers:
       - "4/3"
       - "cross-platform"
@@ -40,35 +40,35 @@ units:
   - id: config
     path: config.py
     intent: "Path configuration — all analysis scripts import dataset paths from here"
-    scope: "configuration"
-    audience: ["engineer"]
-    validated: true
+    scope: module
+    audience: ["developer"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 50
-      priority: low
+      priority: reference
 
   - id: requirements
     path: requirements.txt
     intent: "Python dependencies for all analysis scripts"
-    scope: "dependencies"
-    audience: ["engineer"]
-    validated: true
+    scope: module
+    audience: ["developer"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 30
-      priority: low
+      priority: reference
 
   - id: download-data
     path: download_data.py
     intent: "Downloads raw datasets: Xiang 2024 DTC, Hurricane Dorian NOAA, CHB-MIT EEG, Rishikesh meditation, DAQEC IBM"
-    scope: "data acquisition"
-    audience: ["engineer"]
-    validated: true
+    scope: module
+    audience: ["developer"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 100
-      priority: low
+      priority: reference
 
   # SUMMARY AND CROSS-PLATFORM SYNTHESIS
   - id: final-summary
@@ -76,13 +76,13 @@ units:
     intent: >
       Cross-dataset summary report — combines all 11+ datasets, computes overall
       α distribution, tests whether convergence on 4/3 is statistically significant.
-    scope: "synthesis — cross-dataset summary"
-    audience: ["physicist", "reviewer"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: high
+      priority: critical
     triggers:
       - "summary"
       - "cross-dataset"
@@ -94,13 +94,13 @@ units:
     intent: >
       Cross-platform meta-analysis with forest plot (Fig. 7 in companion paper).
       Synthesizes all datasets with confidence intervals; tests heterogeneity.
-    scope: "meta-analysis — forest plot"
-    audience: ["physicist", "statistician"]
-    validated: true
+    scope: module
+    audience: ["human", "statistician"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: high
+      priority: critical
     triggers:
       - "meta-analysis"
       - "forest plot"
@@ -111,13 +111,13 @@ units:
   - id: merkabit-predictions-final
     path: analysis/merkabit_predictions_final.py
     intent: "Final testable predictions from the Merkabit framework with controls and caveats"
-    scope: "predictions — final assessment"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: high
+      priority: critical
     triggers:
       - "predictions"
       - "testable"
@@ -128,13 +128,13 @@ units:
   - id: merkabit-analysis-mi2022
     path: analysis/merkabit_analysis.py
     intent: "Mi et al. 2022 (Google Sycamore) DTC envelope fitting — α = 0.822 (strong MBL disorder)"
-    scope: "DTC — Mi 2022 Google Sycamore"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: medium
+      priority: supplementary
     triggers:
       - "Mi 2022"
       - "Google Sycamore"
@@ -147,13 +147,13 @@ units:
     intent: >
       Cross-dataset DTC comparison: Xiang 2024 topological DTC (α = 0.72 high disorder,
       α = 1.34 zero disorder) and Randall 2021. Zero-disorder DTC is closest to 4/3.
-    scope: "DTC — multi-dataset comparison"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: medium
+      priority: supplementary
     triggers:
       - "Xiang 2024"
       - "topological DTC"
@@ -163,35 +163,35 @@ units:
   - id: merkabit-refined
     path: analysis/merkabit_refined.py
     intent: "Refined DTC analysis with systematic noise correction"
-    scope: "DTC — refined analysis"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: simulation-dtc
     path: analysis/simulation.py
     intent: "Pure-state and density matrix DTC circuit simulator — generates synthetic DTC data"
-    scope: "DTC — simulation"
-    audience: ["engineer", "physicist"]
-    validated: true
+    scope: module
+    audience: ["developer", "human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: low
+      priority: reference
 
   - id: subharmonic-envelope
     path: analysis/subharmonic_envelope.py
     intent: "Subharmonic envelope extraction from DTC oscillation data"
-    scope: "DTC — subharmonic analysis"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   # PLASMA — TOKAMAK ELMs (ASDEX UPGRADE)
   - id: kww-elm
@@ -199,13 +199,13 @@ units:
     intent: >
       Cavedon 2019 ELM relaxation on ASDEX Upgrade tokamak: two channels,
       Idiv tail α = 1.27, gradTi recovery α = 1.43. Both within Merkabit window.
-    scope: "plasma — tokamak ELM relaxation"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: medium
+      priority: supplementary
     triggers:
       - "tokamak"
       - "ELM"
@@ -216,14 +216,14 @@ units:
   - id: kww-tail-analysis
     path: analysis/kww_tail_analysis.py
     intent: "Idiv tail sensitivity analysis — tests robustness of α = 1.27 to fit window choice"
-    scope: "plasma — ELM tail sensitivity"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     depends_on: [kww-elm]
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   # ATMOSPHERIC — HURRICANE DORIAN
   - id: kww-dorian
@@ -231,13 +231,13 @@ units:
     intent: >
       Hurricane Dorian 2019 rapid intensification: wind speed α = 1.44,
       pressure deepening α = 1.47. Both within Merkabit window (~4/3).
-    scope: "atmospheric — Hurricane Dorian"
-    audience: ["physicist", "geophysicist"]
-    validated: true
+    scope: module
+    audience: ["human", "geophysicist"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: medium
+      priority: supplementary
     triggers:
       - "hurricane"
       - "Dorian"
@@ -250,13 +250,13 @@ units:
     intent: >
       CHB-MIT EEG seizure analysis (chb01): pre-ictal cooperative cascade,
       α = 1.23, 5/7 patients in window. Merkabit signature in neural data.
-    scope: "neuroscience — seizure EEG"
-    audience: ["neuroscientist", "physicist"]
-    validated: true
+    scope: module
+    audience: ["neuroscientist", "human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: medium
+      priority: supplementary
     triggers:
       - "EEG"
       - "seizure"
@@ -267,25 +267,25 @@ units:
   - id: chbmit-multipatient
     path: analysis/chbmit_multipatient.py
     intent: "Multi-patient CHB-MIT validation — extends single-patient result to cohort"
-    scope: "neuroscience — multi-patient EEG"
+    scope: module
     audience: ["neuroscientist"]
-    validated: true
+    validated: "2026-04-06"
     depends_on: [chbmit-analysis]
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: chbmit-permutation
     path: analysis/chbmit_permutation_test.py
     intent: "Permutation test for CHB-MIT in-window fraction — statistical significance"
-    scope: "neuroscience — permutation test"
+    scope: module
     audience: ["statistician", "neuroscientist"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: medium
+      priority: supplementary
     triggers:
       - "permutation test"
       - "significance"
@@ -294,13 +294,13 @@ units:
   - id: chbmit-classification
     path: analysis/chbmit_seizure_classification.py
     intent: "Seizure classification by KWW signature — can α ≈ 4/3 predict seizure onset?"
-    scope: "neuroscience — seizure classification"
+    scope: module
     audience: ["neuroscientist", "clinician"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: medium
+      priority: supplementary
     triggers:
       - "seizure prediction"
       - "classification"
@@ -311,13 +311,13 @@ units:
     intent: >
       DAQEC IBM Brisbane 127q hardware: T2 fluctuation distribution KWW fit,
       α = 1.32 ± 0.07. Qubit decoherence follows same 4/3 threshold as physical systems.
-    scope: "quantum hardware — IBM DAQEC T2"
-    audience: ["physicist", "quantum engineer"]
-    validated: true
+    scope: module
+    audience: ["human", "quantum developer"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: medium
+      priority: supplementary
     triggers:
       - "IBM"
       - "quantum hardware"
@@ -329,14 +329,14 @@ units:
   - id: daqec-acf-psd
     path: analysis/daqec_acf_psd_analysis.py
     intent: "DAQEC ACF, PSD, and fluctuation distribution analysis — frequency domain complement to KWW"
-    scope: "quantum hardware — DAQEC spectral"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     depends_on: [daqec-kww]
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   # SOFT MATTER — COLLOIDAL GEL
   - id: kww-colloidal-gel
@@ -344,13 +344,13 @@ units:
     intent: >
       Duri & Cipelletti 2006 colloidal gel compressed exponential DLS:
       α = 1.35 ± 0.07 at fractal gel scale (~μm). 12th dataset.
-    scope: "soft matter — colloidal gel"
-    audience: ["physicist", "chemist"]
-    validated: true
+    scope: module
+    audience: ["human", "chemist"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
     triggers:
       - "colloidal gel"
       - "DLS"
@@ -362,13 +362,13 @@ units:
     intent: >
       Rishikesh meditation Phase 1: spectral balance (alpha/gamma ratio) approaching 4/3
       in experienced practitioners (HYT group α = 1.36). Broadens biological domain.
-    scope: "meditation EEG — Phase 1 spectral"
-    audience: ["neuroscientist", "physicist"]
-    validated: true
+    scope: module
+    audience: ["neuroscientist", "human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: medium
+      priority: supplementary
     triggers:
       - "meditation"
       - "EEG"
@@ -379,25 +379,25 @@ units:
   - id: phase1-channel-analysis
     path: analysis/phase1_channel_analysis.py
     intent: "64-channel topographic alpha/gamma mapping in meditation dataset"
-    scope: "meditation EEG — topographic mapping"
+    scope: module
     audience: ["neuroscientist"]
-    validated: true
+    validated: "2026-04-06"
     depends_on: [meditation-phase1]
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: phase1-deep-analysis
     path: analysis/phase1_deep_analysis.py
     intent: "ISY distribution, Z3 symmetry, spatial uniformity in Phase 1 meditation data"
-    scope: "meditation EEG — Z3 symmetry"
-    audience: ["neuroscientist", "mathematician"]
-    validated: true
+    scope: module
+    audience: ["neuroscientist", "human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
     triggers:
       - "Z3 symmetry"
       - "ISY"
@@ -405,80 +405,80 @@ units:
   - id: meditation-phase2
     path: analysis/rishikesh_meditation_phase2.py
     intent: "Phase 2 meditation: KWW + geometric analysis on raw 64ch EEG (requires download)"
-    scope: "meditation EEG — Phase 2 KWW"
+    scope: module
     audience: ["neuroscientist"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: low
+      priority: reference
 
   - id: phase2-spectral-ratio
     path: analysis/phase2_spectral_ratio.py
     intent: "Phase 2 spectral ratio replication from raw EEG"
-    scope: "meditation EEG — Phase 2 spectral"
+    scope: module
     audience: ["neuroscientist"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: pmed9-ratio-kww
     path: analysis/pmed9_ratio_kww.py
     intent: "Meditation ratio ACF → KWW analysis for pmed9 dataset variant"
-    scope: "meditation EEG — pmed9 KWW"
+    scope: module
     audience: ["neuroscientist"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: med-p2-h2-mechanism
     path: analysis/med_p2_13_h2_mechanism.py
     intent: "VIP H2 mechanism in low-Z3 windows of Phase 2 meditation data"
-    scope: "meditation EEG — H2 mechanism"
+    scope: module
     audience: ["neuroscientist"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: delorme-mindwandering
     path: analysis/delorme_mindwandering_phase2.py
     intent: "Within-subject mind-wandering vs meditation analysis (Delorme dataset)"
-    scope: "meditation EEG — mind wandering comparison"
+    scope: module
     audience: ["neuroscientist"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: z3-timeseries
     path: analysis/z3_timeseries.py
     intent: "Windowed Z3 time series — sliding-window H3/H2 ratio tracking"
-    scope: "meditation EEG — Z3 timeseries"
+    scope: module
     audience: ["neuroscientist"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   # ASTROPHYSICS — QUASARS
   - id: quasar-kww
     path: analysis/p6_quasar_kww.py
     intent: "P6: SDSS S82 quasar structure function KWW analysis — 4/3 in accretion disk variability"
-    scope: "astrophysics — quasar variability"
+    scope: module
     audience: ["astrophysicist"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: medium
+      priority: supplementary
     triggers:
       - "quasar"
       - "SDSS"
@@ -488,25 +488,25 @@ units:
   - id: quasar-super-edd
     path: analysis/p6_super_edd.py
     intent: "P6: SDSS S82 super-Eddington quasar sample selection — data preparation for KWW"
-    scope: "astrophysics — quasar sample selection"
+    scope: module
     audience: ["astrophysicist"]
-    validated: true
+    validated: "2026-04-06"
     depends_on: [quasar-kww]
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: perseus-xray
     path: analysis/p7_perseus_xray.py
     intent: "P7: Perseus cluster Chandra X-ray — AGN feedback structure function KWW analysis"
-    scope: "astrophysics — X-ray cluster"
+    scope: module
     audience: ["astrophysicist"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: medium
+      priority: supplementary
     triggers:
       - "Perseus cluster"
       - "AGN feedback"
@@ -517,24 +517,24 @@ units:
   - id: tesseract-investigation
     path: analysis/tesseract_merkabit_simulation.py
     intent: "Tesseract-merkabit simulation in companion context — cross-check with The_Merkabit repo"
-    scope: "geometry — tesseract"
-    audience: ["mathematician"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: tesseract-zero-point
     path: analysis/tesseract_zero_point_investigation.py
     intent: "Tesseract zero-point investigation — derives 1/4 spectral gap from 4D hypercube"
-    scope: "geometry — tesseract zero-point"
-    audience: ["mathematician"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: medium
+      priority: supplementary
     triggers:
       - "tesseract"
       - "zero point"
@@ -544,39 +544,39 @@ units:
   - id: tesseract-zero-point-2
     path: analysis/tesseract_zero_point_part2.py
     intent: "Part 2: continuation of tesseract zero-point investigation"
-    scope: "geometry — tesseract zero-point pt2"
-    audience: ["mathematician"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     depends_on: [tesseract-zero-point]
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: tesseract-zero-point-3
     path: analysis/tesseract_zero_point_part3.py
     intent: "Part 3: final tesseract zero-point derivation"
-    scope: "geometry — tesseract zero-point pt3"
-    audience: ["mathematician"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     depends_on: [tesseract-zero-point-2]
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: twenty-four-cell
     path: analysis/twentyfour_cell_investigation.py
     intent: >
       24-cell investigation — derives α = 4/3 as ratio of 24-cell (gap 1/3) to
       tesseract (gap 1/4): (1/3)/(1/4) = 4/3. Framework derivation of the threshold.
-    scope: "geometry — 24-cell derivation"
-    audience: ["mathematician"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: high
+      priority: critical
     triggers:
       - "24-cell"
       - "24 cell"
@@ -588,13 +588,13 @@ units:
   - id: r2-significance
     path: analysis/r2_significance_test.py
     intent: "R² significance testing — validates R² > 0.90 criterion across datasets"
-    scope: "statistics — R² significance"
+    scope: module
     audience: ["statistician"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: medium
+      priority: supplementary
     triggers:
       - "R squared"
       - "significance"
@@ -603,47 +603,47 @@ units:
   - id: nstar-stress-test
     path: analysis/nstar_stress_test.py
     intent: "N* stress test — robustness of framework predictions under sample size variation"
-    scope: "statistics — stress test"
+    scope: module
     audience: ["statistician"]
-    validated: true
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: short-time-scaling
     path: analysis/short_time_scaling_test.py
     intent: "Short-time scaling test — checks whether KWW fit is valid at short time scales"
-    scope: "statistics — short-time scaling"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: low
+      priority: reference
 
   - id: tsoukalas-verification
     path: analysis/tsoukalas_alpha_verification.py
     intent: "Tsoukalas dataset α=4/3 verification — independent external data source"
-    scope: "verification — Tsoukalas dataset"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: medium
+      priority: supplementary
 
   # PREDICTIONS
   - id: merkabit-predictions
     path: analysis/merkabit_predictions.py
     intent: "Testable predictions from framework — what future experiments should observe"
-    scope: "predictions"
-    audience: ["physicist"]
-    validated: true
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 200
-      priority: medium
+      priority: supplementary
     triggers:
       - "predictions"
       - "future experiments"
@@ -651,13 +651,13 @@ units:
   - id: merkabit-predictions-caveats
     path: analysis/merkabit_predictions_caveats.py
     intent: "Caveats and limitations on predictions — what would falsify the framework"
-    scope: "predictions — caveats"
-    audience: ["physicist", "referee"]
-    validated: true
+    scope: module
+    audience: ["human", "referee"]
+    validated: "2026-04-06"
     hints:
       load_strategy: lazy
       token_estimate: 150
-      priority: medium
+      priority: supplementary
     triggers:
       - "falsify"
       - "caveats"
