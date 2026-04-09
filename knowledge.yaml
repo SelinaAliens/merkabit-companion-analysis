@@ -1,0 +1,750 @@
+kcp_version: "0.14"
+project: "merkabit-companion-analysis"
+description: >
+  Cross-platform empirical evidence for the Merkabit 4/3 threshold signature.
+  Analyzes stretched-exponential (KWW) exponent α ~ 4/3 across quantum, plasma,
+  atmospheric, biological, and neural systems spanning 10 orders of magnitude
+  in spatial scale. Datasets: discrete time crystals (Google Sycamore), tokamak
+  ELMs (ASDEX Upgrade), Hurricane Dorian, epileptic seizures (CHB-MIT EEG),
+  IBM quantum hardware (DAQEC), colloidal gel, meditation EEG (Rishikesh),
+  quasars (SDSS), Perseus cluster X-ray. All 11+ datasets converge on α ≈ 4/3.
+version: "1.0"
+created: "2026-04-06"
+maintainer: "Selina Stenberg"
+
+# ─── UNITS ────────────────────────────────────────────────────────────────────
+units:
+
+  # ORIENTATION
+  - id: readme
+    path: README.md
+    intent: >
+      Entry point: cross-platform comparison table (11 datasets, scales from nm to 500km),
+      Merkabit signature definition (|α-4/3| < 0.15, R² > 0.90), repo structure,
+      setup instructions, download instructions for raw datasets.
+    scope: global
+    audience: ["human", "data scientist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: eager
+      token_estimate: 500
+      priority: critical
+    triggers:
+      - "4/3"
+      - "cross-platform"
+      - "KWW"
+      - "stretched exponential"
+      - "alpha 4/3 exponent"
+      - "companion analysis"
+
+  - id: config
+    path: config.py
+    intent: "Path configuration — all analysis scripts import dataset paths from here"
+    scope: module
+    audience: ["developer"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 50
+      priority: reference
+
+  - id: requirements
+    path: requirements.txt
+    intent: "Python dependencies for all analysis scripts"
+    scope: module
+    audience: ["developer"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 30
+      priority: reference
+
+  - id: download-data
+    path: download_data.py
+    intent: "Downloads raw datasets: Xiang 2024 DTC, Hurricane Dorian NOAA, CHB-MIT EEG, Rishikesh meditation, DAQEC IBM"
+    scope: module
+    audience: ["developer"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 100
+      priority: reference
+
+  # SUMMARY AND CROSS-PLATFORM SYNTHESIS
+  - id: final-summary
+    path: analysis/final_summary.py
+    intent: >
+      Cross-dataset summary report — combines all 11+ datasets, computes overall
+      α distribution, tests whether convergence on 4/3 is statistically significant.
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: critical
+    triggers:
+      - "summary"
+      - "cross-dataset"
+      - "statistical significance"
+      - "overall result"
+
+  - id: meta-analysis-forest-plot
+    path: analysis/meta_analysis_forest_plot.py
+    intent: >
+      Cross-platform meta-analysis with forest plot (Fig. 7 in companion paper).
+      Synthesizes all datasets with confidence intervals; tests heterogeneity.
+    scope: module
+    audience: ["human", "statistician"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: critical
+    triggers:
+      - "meta-analysis"
+      - "forest plot"
+      - "Figure 7"
+      - "confidence intervals"
+      - "heterogeneity"
+
+  - id: merkabit-predictions-final
+    path: analysis/merkabit_predictions_final.py
+    intent: "Final testable predictions from the Merkabit framework with controls and caveats"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: critical
+    triggers:
+      - "predictions"
+      - "testable"
+      - "falsifiable"
+      - "controls"
+
+  # DISCRETE TIME CRYSTAL (DTC) DATASETS
+  - id: merkabit-analysis-mi2022
+    path: analysis/merkabit_analysis.py
+    intent: "Mi et al. 2022 (Google Sycamore) DTC envelope fitting — α = 0.822 (strong MBL disorder)"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: supplementary
+    triggers:
+      - "Mi 2022"
+      - "Google Sycamore"
+      - "DTC"
+      - "discrete time crystal"
+      - "MBL"
+
+  - id: multi-dtc-analysis
+    path: analysis/multi_dtc_analysis.py
+    intent: >
+      Cross-dataset DTC comparison: Xiang 2024 topological DTC (α = 0.72 high disorder,
+      α = 1.34 zero disorder) and Randall 2021. Zero-disorder DTC is closest to 4/3.
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: supplementary
+    triggers:
+      - "Xiang 2024"
+      - "topological DTC"
+      - "disorder"
+      - "1.34"
+
+  - id: merkabit-refined
+    path: analysis/merkabit_refined.py
+    intent: "Refined DTC analysis with systematic noise correction"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: simulation-dtc
+    path: analysis/simulation.py
+    intent: "Pure-state and density matrix DTC circuit simulator — generates synthetic DTC data"
+    scope: module
+    audience: ["developer", "human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: reference
+
+  - id: subharmonic-envelope
+    path: analysis/subharmonic_envelope.py
+    intent: "Subharmonic envelope extraction from DTC oscillation data"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  # PLASMA — TOKAMAK ELMs (ASDEX UPGRADE)
+  - id: kww-elm
+    path: analysis/kww_elm_final.py
+    intent: >
+      Cavedon 2019 ELM relaxation on ASDEX Upgrade tokamak: two channels,
+      Idiv tail α = 1.27, gradTi recovery α = 1.43. Both within Merkabit window.
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: supplementary
+    triggers:
+      - "tokamak"
+      - "ELM"
+      - "ASDEX"
+      - "plasma"
+      - "fusion"
+
+  - id: kww-tail-analysis
+    path: analysis/kww_tail_analysis.py
+    intent: "Idiv tail sensitivity analysis — tests robustness of α = 1.27 to fit window choice"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    depends_on: [kww-elm]
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  # ATMOSPHERIC — HURRICANE DORIAN
+  - id: kww-dorian
+    path: analysis/kww_dorian_final.py
+    intent: >
+      Hurricane Dorian 2019 rapid intensification: wind speed α = 1.44,
+      pressure deepening α = 1.47. Both within Merkabit window (~4/3).
+    scope: module
+    audience: ["human", "geophysicist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: supplementary
+    triggers:
+      - "hurricane"
+      - "Dorian"
+      - "atmospheric"
+      - "rapid intensification"
+
+  # NEUROSCIENCE — EEG SEIZURES (CHB-MIT)
+  - id: chbmit-analysis
+    path: analysis/chbmit_analysis.py
+    intent: >
+      CHB-MIT EEG seizure analysis (chb01): pre-ictal cooperative cascade,
+      α = 1.23, 5/7 patients in window. Merkabit signature in neural data.
+    scope: module
+    audience: ["neuroscientist", "human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: supplementary
+    triggers:
+      - "EEG"
+      - "seizure"
+      - "CHB-MIT"
+      - "pre-ictal"
+      - "epilepsy"
+
+  - id: chbmit-multipatient
+    path: analysis/chbmit_multipatient.py
+    intent: "Multi-patient CHB-MIT validation — extends single-patient result to cohort"
+    scope: module
+    audience: ["neuroscientist"]
+    validated: "2026-04-06"
+    depends_on: [chbmit-analysis]
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: chbmit-permutation
+    path: analysis/chbmit_permutation_test.py
+    intent: "Permutation test for CHB-MIT in-window fraction — statistical significance"
+    scope: module
+    audience: ["statistician", "neuroscientist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: supplementary
+    triggers:
+      - "permutation test"
+      - "significance"
+      - "EEG"
+
+  - id: chbmit-classification
+    path: analysis/chbmit_seizure_classification.py
+    intent: "Seizure classification by KWW signature — can α ≈ 4/3 predict seizure onset?"
+    scope: module
+    audience: ["neuroscientist", "clinician"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: supplementary
+    triggers:
+      - "seizure prediction"
+      - "classification"
+
+  # PUBLISHED PAPERS (ZENODO)
+  - id: paper3-not-an-error
+    path: https://zenodo.org/records/19437419
+    intent: >
+      Paper 3: The Rotation Gap Is Not An Error (DOI: 10.5281/zenodo.19437419, 2026-04-06).
+      756 experiments on IBM Eagle r3. Sub-Poissonian syndrome statistics (F=0.856 ± 0.03)
+      vs super-Poissonian on Google Willow (F=2.42). Hardware validation of ternary structure.
+    scope: project
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: critical
+    triggers:
+      - "Paper 3"
+      - "not an error"
+      - "zenodo 19437419"
+      - "F=0.856"
+      - "sub-Poissonian hardware"
+
+  - id: paper4-rotation-gap-is-flat
+    path: https://zenodo.org/records/19417293
+    intent: >
+      Paper 4: The Rotation Gap Is Flat (DOI: 10.5281/zenodo.19417293, 2026-04-04).
+      Binary-ternary hybrid architecture on the Eisenstein lattice. Two-scale independence:
+      2450× combined suppression, zero tunable parameters, zero qubit overhead.
+      Optimal coupling enables B31 algorithms under T75 protection with fidelity > 0.999.
+    scope: project
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: critical
+    triggers:
+      - "Paper 4"
+      - "rotation gap is flat"
+      - "zenodo 19417293"
+      - "2450x"
+      - "fault tolerant migration"
+
+  # QUANTUM HARDWARE — IBM (DAQEC)
+  - id: daqec-kww
+    path: analysis/daqec_kww_analysis.py
+    intent: >
+      DAQEC IBM Brisbane 127q hardware: T2 fluctuation distribution KWW fit,
+      α = 1.32 ± 0.07. Qubit decoherence follows same 4/3 threshold as physical systems.
+    scope: module
+    audience: ["human", "quantum developer"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: supplementary
+    triggers:
+      - "IBM"
+      - "quantum hardware"
+      - "T2"
+      - "decoherence"
+      - "DAQEC"
+      - "qubit fluctuation"
+
+  - id: daqec-acf-psd
+    path: analysis/daqec_acf_psd_analysis.py
+    intent: "DAQEC ACF, PSD, and fluctuation distribution analysis — frequency domain complement to KWW"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    depends_on: [daqec-kww]
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  # SOFT MATTER — COLLOIDAL GEL
+  - id: kww-colloidal-gel
+    path: analysis/kww_colloidal_gel.py
+    intent: >
+      Duri & Cipelletti 2006 colloidal gel compressed exponential DLS:
+      α = 1.35 ± 0.07 at fractal gel scale (~μm). 12th dataset.
+    scope: module
+    audience: ["human", "chemist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+    triggers:
+      - "colloidal gel"
+      - "DLS"
+      - "soft matter"
+
+  # NEUROSCIENCE — MEDITATION EEG (RISHIKESH)
+  - id: meditation-phase1
+    path: analysis/meditation_phase1_analysis.py
+    intent: >
+      Rishikesh meditation Phase 1: spectral balance (alpha/gamma ratio) approaching 4/3
+      in experienced practitioners (HYT group α = 1.36). Broadens biological domain.
+    scope: module
+    audience: ["neuroscientist", "human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: supplementary
+    triggers:
+      - "meditation"
+      - "EEG"
+      - "alpha gamma"
+      - "Rishikesh"
+      - "HYT"
+
+  - id: phase1-channel-analysis
+    path: analysis/phase1_channel_analysis.py
+    intent: "64-channel topographic alpha/gamma mapping in meditation dataset"
+    scope: module
+    audience: ["neuroscientist"]
+    validated: "2026-04-06"
+    depends_on: [meditation-phase1]
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: phase1-deep-analysis
+    path: analysis/phase1_deep_analysis.py
+    intent: "ISY distribution, Z3 symmetry, spatial uniformity in Phase 1 meditation data"
+    scope: module
+    audience: ["neuroscientist", "human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+    triggers:
+      - "Z3 symmetry"
+      - "ISY"
+
+  - id: meditation-phase2
+    path: analysis/rishikesh_meditation_phase2.py
+    intent: "Phase 2 meditation: KWW + geometric analysis on raw 64ch EEG (requires download)"
+    scope: module
+    audience: ["neuroscientist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: reference
+
+  - id: phase2-spectral-ratio
+    path: analysis/phase2_spectral_ratio.py
+    intent: "Phase 2 spectral ratio replication from raw EEG"
+    scope: module
+    audience: ["neuroscientist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: pmed9-ratio-kww
+    path: analysis/pmed9_ratio_kww.py
+    intent: "Meditation ratio ACF → KWW analysis for pmed9 dataset variant"
+    scope: module
+    audience: ["neuroscientist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: med-p2-h2-mechanism
+    path: analysis/med_p2_13_h2_mechanism.py
+    intent: "VIP H2 mechanism in low-Z3 windows of Phase 2 meditation data"
+    scope: module
+    audience: ["neuroscientist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: delorme-mindwandering
+    path: analysis/delorme_mindwandering_phase2.py
+    intent: "Within-subject mind-wandering vs meditation analysis (Delorme dataset)"
+    scope: module
+    audience: ["neuroscientist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: z3-timeseries
+    path: analysis/z3_timeseries.py
+    intent: "Windowed Z3 time series — sliding-window H3/H2 ratio tracking"
+    scope: module
+    audience: ["neuroscientist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  # ASTROPHYSICS — QUASARS
+  - id: quasar-kww
+    path: analysis/p6_quasar_kww.py
+    intent: "P6: SDSS S82 quasar structure function KWW analysis — 4/3 in accretion disk variability"
+    scope: module
+    audience: ["astrophysicist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: supplementary
+    triggers:
+      - "quasar"
+      - "SDSS"
+      - "accretion disk"
+      - "variability"
+
+  - id: quasar-super-edd
+    path: analysis/p6_super_edd.py
+    intent: "P6: SDSS S82 super-Eddington quasar sample selection — data preparation for KWW"
+    scope: module
+    audience: ["astrophysicist"]
+    validated: "2026-04-06"
+    depends_on: [quasar-kww]
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: perseus-xray
+    path: analysis/p7_perseus_xray.py
+    intent: "P7: Perseus cluster Chandra X-ray — AGN feedback structure function KWW analysis"
+    scope: module
+    audience: ["astrophysicist"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: supplementary
+    triggers:
+      - "Perseus cluster"
+      - "AGN feedback"
+      - "X-ray"
+      - "Chandra"
+
+  # TESSERACT / 24-CELL INVESTIGATIONS
+  - id: tesseract-investigation
+    path: analysis/tesseract_merkabit_simulation.py
+    intent: "Tesseract-merkabit simulation in companion context — cross-check with The_Merkabit repo"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: tesseract-zero-point
+    path: analysis/tesseract_zero_point_investigation.py
+    intent: "Tesseract zero-point investigation — derives 1/4 spectral gap from 4D hypercube"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: supplementary
+    triggers:
+      - "tesseract"
+      - "zero point"
+      - "1/4 gap"
+      - "4/3 ratio"
+
+  - id: tesseract-zero-point-2
+    path: analysis/tesseract_zero_point_part2.py
+    intent: "Part 2: continuation of tesseract zero-point investigation"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    depends_on: [tesseract-zero-point]
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: tesseract-zero-point-3
+    path: analysis/tesseract_zero_point_part3.py
+    intent: "Part 3: final tesseract zero-point derivation"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    depends_on: [tesseract-zero-point-2]
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: twenty-four-cell
+    path: analysis/twentyfour_cell_investigation.py
+    intent: >
+      24-cell investigation — derives α = 4/3 as ratio of 24-cell (gap 1/3) to
+      tesseract (gap 1/4): (1/3)/(1/4) = 4/3. Framework derivation of the threshold.
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: critical
+    triggers:
+      - "24-cell"
+      - "24 cell"
+      - "ratio 1/3 over 1/4"
+      - "geometric derivation"
+      - "4/3 derivation"
+
+  # STATISTICAL TESTS AND VERIFICATIONS
+  - id: r2-significance
+    path: analysis/r2_significance_test.py
+    intent: "R² significance testing — validates R² > 0.90 criterion across datasets"
+    scope: module
+    audience: ["statistician"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: supplementary
+    triggers:
+      - "R squared"
+      - "significance"
+      - "goodness of fit"
+
+  - id: nstar-stress-test
+    path: analysis/nstar_stress_test.py
+    intent: "N* stress test — robustness of framework predictions under sample size variation"
+    scope: module
+    audience: ["statistician"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: short-time-scaling
+    path: analysis/short_time_scaling_test.py
+    intent: "Short-time scaling test — checks whether KWW fit is valid at short time scales"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: reference
+
+  - id: tsoukalas-verification
+    path: analysis/tsoukalas_alpha_verification.py
+    intent: "Tsoukalas dataset α=4/3 verification — independent external data source"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: supplementary
+
+  # PREDICTIONS
+  - id: merkabit-predictions
+    path: analysis/merkabit_predictions.py
+    intent: "Testable predictions from framework — what future experiments should observe"
+    scope: module
+    audience: ["human"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 200
+      priority: supplementary
+    triggers:
+      - "predictions"
+      - "future experiments"
+
+  - id: merkabit-predictions-caveats
+    path: analysis/merkabit_predictions_caveats.py
+    intent: "Caveats and limitations on predictions — what would falsify the framework"
+    scope: module
+    audience: ["human", "referee"]
+    validated: "2026-04-06"
+    hints:
+      load_strategy: lazy
+      token_estimate: 150
+      priority: supplementary
+    triggers:
+      - "falsify"
+      - "caveats"
+      - "limitations"
+
+# ─── RELATIONSHIPS ────────────────────────────────────────────────────────────
+relationships:
+  - from: final-summary
+    to: meta-analysis-forest-plot
+    type: related
+
+  - from: merkabit-analysis-mi2022
+    to: multi-dtc-analysis
+    type: precedes
+
+  - from: kww-elm
+    to: kww-tail-analysis
+    type: precedes
+
+  - from: chbmit-analysis
+    to: chbmit-multipatient
+    type: precedes
+
+  - from: chbmit-analysis
+    to: chbmit-permutation
+    type: related
+
+  - from: meditation-phase1
+    to: meditation-phase2
+    type: precedes
+
+  - from: twenty-four-cell
+    to: tesseract-zero-point
+    type: related
+    note: "Both derive 4/3 from geometry: 24-cell gives (1/3)/(1/4) = 4/3"
+
+  - from: merkabit-predictions
+    to: merkabit-predictions-final
+    type: precedes
+
+  - from: merkabit-predictions-final
+    to: merkabit-predictions-caveats
+    type: related
+
+  - from: quasar-super-edd
+    to: quasar-kww
+    type: precedes
+    note: "Super-Eddington sample selection must run before KWW fit"
